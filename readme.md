@@ -234,7 +234,7 @@ The file ```to_add_const.py``` contains the paths and information to all files t
 
 For **LIWC-based similarities** the repository expects the [LIWC 2015 dictionary](https://repositories.lib.utexas.edu/bitstream/handle/2152/31333/LIWC2015_LanguageManual.pdf) in ```Data/Models/_LIWC2015_Dictionary.dic```
 
-For the **formal/informal STEL dimension**, you will need to get permission to use the formality data from Verizon ([L6 - Yahoo! Answers ComprehensiveQuestions and Answers version 1.0 (multi part)](https://webscope.sandbox.yahoo.com/catalog.php?datatype=l)) as this is also the prerequisite for receiving the [GYAFC dataset](https://github.com/raosudha89/GYAFC-corpus). Please e-mail me (a.m.wegmann@uu.nl) with the permission to receive the full data necessary to run STEL and add it to ```Data/STEL/dimensions/_quad_stel-dimensions_formal-815_complex-815.tsv```. 
+For the **formal/informal STEL dimension**, you will need to get permission to use the formality data from Yahoo ([L6 - Yahoo! Answers ComprehensiveQuestions and Answers version 1.0 (multi part)](https://webscope.sandbox.yahoo.com/catalog.php?datatype=l)) as this is also the prerequisite for receiving the [GYAFC dataset](https://github.com/raosudha89/GYAFC-corpus). Please e-mail me (a.m.wegmann@uu.nl) with the permission to receive the full data necessary to run STEL and add it to ```Data/STEL/dimensions/_quad_stel-dimensions_formal-815_complex-815.tsv```.  We received a limited waiver to release a  sample of 100 STEL formal/informal tasks with this GitHub release to test the code. It still falls under the Yahoo's Terms of Use and you will need to get permission from them to use Yahoo's data in your own publications.  
 
 
 
@@ -286,4 +286,6 @@ and the papers that the dataset was (partly) generated from:
     pages = "401--415",
 }
 ```
+
+We thank Yahoo for granting us the right to upload a sample of 100 task instances from the formal/informal dimension. Please make sure to adhere to their Terms of Use.
 
