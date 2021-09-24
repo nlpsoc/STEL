@@ -11,3 +11,4 @@ output/
 Datasets/
 # ignore all files starting with _
 _*
+example_eval_style_models.py

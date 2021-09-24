@@ -40,11 +40,11 @@ def eval_unfiltered():
 
 def eval_deepstyle_unfiltered():
     from style_similarity import DeepstyleSimilarity
-    eval_style_models.eval_sim(stel_dim_tsv=LOCAL_ANN_STEL_DIM_QUAD, filter_majority_votes=False,
-                               style_objects=[DeepstyleSimilarity()])
+    eval_style_models.eval_sim(stel_dim_tsv=LOCAL_ANN_STEL_DIM_QUAD, style_objects=[DeepstyleSimilarity()],
+                               filter_majority_votes=False)
 
 
 def eval_one_model_unfiltered():
     from style_similarity import LevenshteinSimilarity
-    eval_style_models.eval_sim(stel_dim_tsv=LOCAL_ANN_STEL_DIM_QUAD, filter_majority_votes=False,
-                               style_objects=[LevenshteinSimilarity()])
+    eval_style_models.eval_sim(stel_dim_tsv=LOCAL_ANN_STEL_DIM_QUAD, style_objects=[LevenshteinSimilarity()],
+                               filter_majority_votes=False)

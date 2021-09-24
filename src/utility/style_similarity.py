@@ -57,7 +57,7 @@ class Similarity(ABC):
         if sentence_1 == sentence_2:
             return self.SAME
         else:
-            pass
+            return self.DISTINCT
 
     def similarities(self, sentences_1: List[str], sentences_2: List[str]) -> List[float]:
         return [self.similarity(sentences_1[i], sentences_2[i]) for i in range(len(sentences_1))]

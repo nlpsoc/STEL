@@ -58,26 +58,26 @@ STYLE_OBJECTS = [LevenshteinSimilarity(),
 # For running LIWC make sure you have the LIWC dict file in the path specified in to_add_const
 #   STYLE_OBJECTS = [LIWCStyleSimilarity(), LIWCSimilarity(), LIWCFunctionSimilarity()]
 
-def eval_sim(stel_dim_tsv: List[str] = LOCAL_STEL_DIM_QUAD, stel_char_tsv: List[str] = LOCAL_STEL_CHAR_QUAD,
-             filter_majority_votes: bool = True, eval_on_triple=False,
-             output_folder='output/', style_objects=STYLE_OBJECTS, stel_instances: pd.DataFrame = None):
+def eval_sim(stel_char_tsv: List[str] = LOCAL_STEL_CHAR_QUAD, stel_dim_tsv: List[str] = LOCAL_STEL_DIM_QUAD,
+             style_objects=STYLE_OBJECTS, output_folder='output/', eval_on_triple=False,
+             filter_majority_votes: bool = True, stel_instances: pd.DataFrame = None):
     """
         running the evaluation of (language) models/methods on the similarity-based STyle EvaLuation Framework (STEL)
-    :param stel_instances: pandas dataframe of pre-selected task instances,
-        this overwrites the tsv files stel_dim_tsv and stel_char_tsv
-    :param eval_on_triple: evaluate models on the triple instead of the quadruple setup, default is False
-    :param style_objects: object which can call similarities with two lists of sentences as input
-    :param output_folder: where results of evaluation should be saved to ...
     :param stel_char_tsv: list of paths to pandas dataframes in the expected format
     :param stel_dim_tsv:  list of paths to pandas dataframe in the expected format and majority vote column
+    :param style_objects: object which can call similarities with two lists of sentences as input
+    :param output_folder: where results of evaluation should be saved to ...
+    :param eval_on_triple: evaluate models on the triple instead of the quadruple setup, default is False
     :param filter_majority_votes: if the tsv file includes questions with low agreement filter those out
+    :param stel_instances: pandas dataframe of pre-selected task instances, default=None
+        this overwrites the tsv files stel_dim_tsv and stel_char_tsv
     :return:
 
     Example:
      Call all models (except for deepstyle and LIWC) on STEL:
         >>> eval_sim()
 
-     Call deepstyle extra as it has different python prerequisites
+     Call deepstyle extra as it has different python prerequisites (see readme)
         >>> from style_similarity import DeepstyleSimilarity
         >>> eval_sim(style_objects=[DeepstyleSimilarity()])
 
@@ -86,6 +86,7 @@ def eval_sim(stel_dim_tsv: List[str] = LOCAL_STEL_DIM_QUAD, stel_char_tsv: List[
         >>> eval_sim(style_objects=[WordLengthSimilarity()])
 
      Call all models (except for deepstyle and LIWC) on the unfiltered potential task instances
+          -- PROBABLY not what you want
         >>> from to_add_const import LOCAL_ANN_STEL_DIM_QUAD
         >>> eval_sim(stel_dim_tsv=LOCAL_ANN_STEL_DIM_QUAD,filter_majority_votes=False)
 
@@ -423,4 +424,4 @@ if __name__ == "__main__":
         quadruple_tsv = LOCAL_STEL_DIM_QUAD
         logging.info('Calculating on STLE ....')
 
-    eval_sim(stel_dim_tsv=quadruple_tsv, stel_char_tsv=LOCAL_STEL_CHAR_QUAD, filter_majority_votes=filter_votes)
+    eval_sim(stel_char_tsv=LOCAL_STEL_CHAR_QUAD, stel_dim_tsv=quadruple_tsv, filter_majority_votes=filter_votes)
