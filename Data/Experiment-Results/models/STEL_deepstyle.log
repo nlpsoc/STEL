@@ -1,0 +1,86 @@
+INFO:transformers.file_utils:PyTorch version 1.7.1 available.
+INFO:transformers.file_utils:TensorFlow version 2.0.0 available.
+INFO:root:Running in deterministic mode with seed 1404
+/home/anna/anaconda3/envs/test3.6/lib/python3.6/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /pytorch/c10/cuda/CUDAFunctions.cpp:100.)
+  return torch._C._cuda_getDeviceCount() > 0
+INFO:root:Running STEL framework 
+INFO:root:Filtering out tasks with low agreement ... 
+INFO:root:      on dimensions ['simplicity', 'formality'] using files ['/home/anna/Documents/UU/STEL/src/../Data/STEL/dimensions/_quad_stel-dimensions_formal-815_complex-815.tsv']...
+INFO:root:      on characteristics ['contraction', 'nbr_substitution'] using file ['/home/anna/Documents/UU/STEL/src/../Data/STEL/characteristics/quad_questions_char_contraction.tsv', '/home/anna/Documents/UU/STEL/src/../Data/STEL/characteristics/quad_questions_char_substitution.tsv']
+INFO:root:Evaluating on 1630 style dim and 200 style char tasks ... 
+INFO:root:Evaluation for method DeepstyleSimilarity
+INFO:transformers.configuration_utils:loading configuration file ../../DeepStyle/model/212.129.44.40/DeepStyle/dbert-ft//config.json
+INFO:transformers.configuration_utils:Model config DistilBertConfig {
+  "activation": "gelu",
+  "architectures": [
+    "DistilBertForMaskedLM"
+  ],
+  "attention_dropout": 0.1,
+  "bos_token_id": 0,
+  "dim": 768,
+  "do_sample": false,
+  "dropout": 0.1,
+  "eos_token_ids": 0,
+  "finetuning_task": null,
+  "hidden_dim": 3072,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1"
+  },
+  "initializer_range": 0.02,
+  "is_decoder": false,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1
+  },
+  "length_penalty": 1.0,
+  "max_length": 512,
+  "max_position_embeddings": 512,
+  "model_type": "distilbert",
+  "n_heads": 12,
+  "n_layers": 6,
+  "num_beams": 1,
+  "num_labels": 1200,
+  "num_return_sequences": 1,
+  "output_attentions": false,
+  "output_hidden_states": false,
+  "output_past": true,
+  "pad_token_id": 0,
+  "pruned_heads": {},
+  "qa_dropout": 0.1,
+  "repetition_penalty": 1.0,
+  "seq_classif_dropout": 0.2,
+  "sinusoidal_pos_embds": false,
+  "temperature": 1.0,
+  "tie_weights_": true,
+  "top_k": 50,
+  "top_p": 1.0,
+  "torchscript": false,
+  "use_bfloat16": false,
+  "vocab_size": 30522
+}
+
+INFO:transformers.modeling_tf_utils:loading weights file ../../DeepStyle/model/212.129.44.40/DeepStyle/dbert-ft//tf_model.h5
+2021-09-07 08:51:28.704686: W tensorflow/python/util/util.cc:299] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+2021-09-07 08:51:28.741719: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2021-09-07 08:51:28.741746: E tensorflow/stream_executor/cuda/cuda_driver.cc:318] failed call to cuInit: UNKNOWN ERROR (303)
+2021-09-07 08:51:28.741762: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (betal082355): /proc/driver/nvidia/version does not exist
+2021-09-07 08:51:28.742436: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2021-09-07 08:51:28.777050: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2299965000 Hz
+2021-09-07 08:51:28.778869: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5593dc4e9a40 executing computations on platform Host. Devices:
+2021-09-07 08:51:28.778938: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): Host, Default Version
+INFO:root:deepstyle model loaded
+INFO:root:random assignments: 0
+INFO:root:  Accuracy at 0.6601092896174864, without random 0.6601092896174864 with 0 questions
+INFO:root:  Accuracy simplicity at 0.5521472392638037 for 815 task instances, without random 0.5521472392638037 with 815 left questions
+INFO:root:  Accuracy formality at 0.7092024539877301 for 815 task instances, without random 0.7092024539877301 with 815 left questions
+INFO:root:  Accuracy contraction at 0.96 for 100 task instances, without random 0.96 with 100 left questions
+INFO:root:  Accuracy nbr_substitution at 0.84 for 100 task instances, without random 0.84 with 100 left questions
+            Model Name  Accuracy  Accuracy simplicity  Accuracy formality  \
+0  DeepstyleSimilarity  0.660109             0.552147            0.709202   
+
+   Accuracy contraction  Accuracy nbr_substitution  
+0                  0.96                       0.84  
+INFO:root:Saved results to output/STEL-quadruple_DeepstyleSimilarity.tsv
+INFO:root:Saved single predictions to output/STEL_single-pred-quadruple_DeepstyleSimilarity.tsv
+

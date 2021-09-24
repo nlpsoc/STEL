@@ -1,0 +1,1653 @@
+2021-09-07 08:58:21.866659: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory
+2021-09-07 08:58:21.866689: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+INFO:root:Running in deterministic mode with seed 1404
+/home/anna/.local/lib/python3.8/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx (Triggered internally at  /pytorch/c10/cuda/CUDAFunctions.cpp:100.)
+  return torch._C._cuda_getDeviceCount() > 0
+INFO:root:Running STEL framework 
+INFO:root:      on dimensions ['simplicity', 'formality'] using files ['/home/anna/Documents/UU/STEL/src/../Data/Experiment-Results/annotations/_QUAD-full_annotations.tsv']...
+INFO:root:      on characteristics ['contraction', 'nbr_substitution'] using file ['/home/anna/Documents/UU/STEL/src/../Data/STEL/characteristics/quad_questions_char_contraction.tsv', '/home/anna/Documents/UU/STEL/src/../Data/STEL/characteristics/quad_questions_char_substitution.tsv']
+INFO:root:Evaluating on 2113 style dim and 200 style char tasks ... 
+INFO:root:Evaluation for method LevenshteinSimilarity
+INFO:root:random assignments: 161
+INFO:root:  Accuracy at 0.5298313878080415, without random 0.5320631970260223 with 161 questions
+INFO:root:  Accuracy simplicity at 0.5146443514644352 for 1195 task instances, without random 0.515473032714412 with 1131 left questions
+INFO:root:  Accuracy formality at 0.5577342047930283 for 918 task instances, without random 0.5584988962472406 with 906 left questions
+INFO:root:  Accuracy contraction at 0.385 for 100 task instances, without random 0.3283582089552239 with 67 left questions
+INFO:root:  Accuracy nbr_substitution at 0.5 for 100 task instances, without random 0.7083333333333334 with 48 left questions
+INFO:root:Evaluation for method CharacterThreeGramSimilarity
+INFO:root:random assignments: 105
+INFO:root:  Accuracy at 0.5302637267617812, without random 0.5317028985507246 with 105 questions
+INFO:root:  Accuracy simplicity at 0.500836820083682 for 1195 task instances, without random 0.5008460236886633 with 1182 left questions
+INFO:root:  Accuracy formality at 0.5659041394335512 for 918 task instances, without random 0.5683615819209039 with 885 left questions
+INFO:root:  Accuracy contraction at 0.64 for 100 task instances, without random 0.6428571428571429 with 98 left questions
+INFO:root:  Accuracy nbr_substitution at 0.5 for 100 task instances, without random 0.37209302325581395 with 43 left questions
+INFO:root:Evaluation for method PunctuationSimilarity
+INFO:root:random assignments: 891
+INFO:root:  Accuracy at 0.5453955901426719, without random 0.5738396624472574 with 891 questions
+INFO:root:  Accuracy simplicity at 0.49330543933054394 for 1195 task instances, without random 0.4884393063583815 with 692 left questions
+INFO:root:  Accuracy formality at 0.5757080610021788 for 918 task instances, without random 0.6097946287519748 with 633 left questions
+INFO:root:  Accuracy contraction at 0.9199999999999999 for 100 task instances, without random 0.9468085106382979 with 94 left questions
+INFO:root:  Accuracy nbr_substitution at 0.5 for 100 task instances, without random 1.0 with 3 left questions
+INFO:root:Evaluation for method WordLengthSimilarity
+INFO:root:random assignments: 181
+INFO:root:  Accuracy at 0.5687418936446174, without random 0.5745778611632271 with 181 questions
+INFO:root:  Accuracy simplicity at 0.5740585774058578 for 1195 task instances, without random 0.5771578029642546 with 1147 left questions
+INFO:root:  Accuracy formality at 0.5261437908496732 for 918 task instances, without random 0.5273972602739726 with 876 left questions
+INFO:root:  Accuracy contraction at 0.94 for 100 task instances, without random 0.94 with 100 left questions
+INFO:root:  Accuracy nbr_substitution at 0.5 for 100 task instances, without random 0.7777777777777778 with 9 left questions
+INFO:root:Evaluation for method UppercaseSimilarity
+INFO:root:random assignments: 174
+INFO:root:  Accuracy at 0.5447470817120622, without random 0.5483870967741935 with 174 questions
+INFO:root:  Accuracy simplicity at 0.5112970711297071 for 1195 task instances, without random 0.5119152691968226 with 1133 left questions
+INFO:root:  Accuracy formality at 0.5441176470588235 for 918 task instances, without random 0.5451505016722408 with 897 left questions
+INFO:root:  Accuracy contraction at 1.0 for 100 task instances, without random 1.0 with 100 left questions
+INFO:root:  Accuracy nbr_substitution at 0.5 for 100 task instances, without random 0.4444444444444444 with 9 left questions
+INFO:root:Evaluation for method PosTagSimilarity
+INFO:root:random assignments: 464
+INFO:root:  Accuracy at 0.5248594898400346, without random 0.5310978907517577 with 464 questions
+INFO:root:  Accuracy simplicity at 0.5230125523012552 for 1195 task instances, without random 0.5301866081229418 with 911 left questions
+INFO:root:  Accuracy formality at 0.5272331154684096 for 918 task instances, without random 0.5277161862527716 with 902 left questions
+/home/anna/anaconda3/envs/src/lib/python3.8/site-packages/numpy/lib/function_base.py:380: RuntimeWarning: Mean of empty slice.
+  avg = a.mean(axis)
+/home/anna/anaconda3/envs/src/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+INFO:root:  Accuracy contraction at 0.5 for 100 task instances, without random nan with 0 left questions
+INFO:root:  Accuracy nbr_substitution at 0.5 for 100 task instances, without random 0.6388888888888888 with 36 left questions
+INFO:root:Evaluation for method LIWCStyleSimilarity
+INFO:root:random assignments: 1486
+INFO:root:  Accuracy at 0.5, without random 0.5078597339782346 with 1486 questions
+INFO:root:  Accuracy simplicity at 0.5 for 1195 task instances, without random 0.4624505928853755 with 253 left questions
+INFO:root:  Accuracy formality at 0.5174291938997821 for 918 task instances, without random 0.528169014084507 with 568 left questions
+INFO:root:  Accuracy contraction at 0.5 for 100 task instances, without random nan with 0 left questions
+INFO:root:  Accuracy nbr_substitution at 0.5 for 100 task instances, without random 0.5 with 6 left questions
+INFO:root:Evaluation for method LIWCSimilarity
+INFO:root:random assignments: 216
+INFO:root:  Accuracy at 0.5378296584522266, without random 0.541726275631855 with 216 questions
+INFO:root:  Accuracy simplicity at 0.5179916317991632 for 1195 task instances, without random 0.5206136145733461 with 1043 left questions
+INFO:root:  Accuracy formality at 0.5201525054466232 for 918 task instances, without random 0.5203969128996693 with 907 left questions
+INFO:root:  Accuracy contraction at 0.99 for 100 task instances, without random 0.99 with 100 left questions
+INFO:root:  Accuracy nbr_substitution at 0.5 for 100 task instances, without random 0.46808510638297873 with 47 left questions
+INFO:root:Evaluation for method LIWCFunctionSimilarity
+INFO:root:random assignments: 659
+INFO:root:  Accuracy at 0.5216169476869865, without random 0.530229746070133 with 659 questions
+INFO:root:  Accuracy simplicity at 0.5087866108786611 for 1195 task instances, without random 0.5140939597315436 with 745 left questions
+INFO:root:  Accuracy formality at 0.48148148148148145 for 918 task instances, without random 0.47848101265822784 with 790 left questions
+INFO:root:  Accuracy contraction at 1.0 for 100 task instances, without random 1.0 with 100 left questions
+INFO:root:  Accuracy nbr_substitution at 0.5 for 100 task instances, without random 0.8421052631578947 with 19 left questions
+INFO:root:Evaluation for method USESimilarity
+INFO:absl:Using /tmp/tfhub_modules to cache modules.
+2021-09-07 09:52:37.379983: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2021-09-07 09:52:37.380016: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2021-09-07 09:52:37.380047: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (betal082355): /proc/driver/nvidia/version does not exist
+2021-09-07 09:52:37.380469: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-09-07 09:52:37.420791: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 2299965000 Hz
+2021-09-07 09:52:37.421440: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x56327009dae0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-09-07 09:52:37.421471: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+WARNING:tensorflow:From /home/anna/Documents/UU/STEL/src/utility/style_similarity.py:482: _EagerTensorBase.cpu (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.identity instead.
+INFO:root:random assignments: 11
+INFO:root:  Accuracy at 0.5609597924773022, without random 0.5612510860121633 with 11 questions
+INFO:root:  Accuracy simplicity at 0.5221757322175732 for 1195 task instances, without random 0.5223251895534962 with 1187 left questions
+INFO:root:  Accuracy formality at 0.5778867102396513 for 918 task instances, without random 0.5781420765027322 with 915 left questions
+INFO:root:  Accuracy contraction at 0.85 for 100 task instances, without random 0.85 with 100 left questions
+INFO:root:  Accuracy nbr_substitution at 0.58 for 100 task instances, without random 0.58 with 100 left questions
+INFO:root:Evaluation for method BERTCasedNextSentenceSimilarity
+No GPU available, using the CPU instead.
+INFO:root:Running in deterministic mode with seed 1404
+loading file https://huggingface.co/bert-base-uncased/resolve/main/vocab.txt from cache at /home/anna/.cache/huggingface/transformers/45c3f7a79a80e1cf0a489e5c62b43f173c15db47864303a55d623bb3c96f72a5.d789d64ebfe299b0e416afc4a169632f903f693095b4629a7ea271d5a0cf2c99
+loading file https://huggingface.co/bert-base-uncased/resolve/main/added_tokens.json from cache at None
+loading file https://huggingface.co/bert-base-uncased/resolve/main/special_tokens_map.json from cache at None
+loading file https://huggingface.co/bert-base-uncased/resolve/main/tokenizer_config.json from cache at /home/anna/.cache/huggingface/transformers/c1d7f0a763fb63861cc08553866f1fc3e5a6f4f07621be277452d26d71303b7e.20430bd8e10ef77a7d2977accefe796051e01bc2fc4aa146bc862997a1a15e79
+loading file https://huggingface.co/bert-base-uncased/resolve/main/tokenizer.json from cache at /home/anna/.cache/huggingface/transformers/534479488c54aeaf9c3406f647aa2ec13648c06771ffe269edabebd4c412da1d.7f2721073f19841be16f41b0a70b600ca6b880c8f3df6f3535cbc704371bdfa4
+loading file https://huggingface.co/bert-base-cased/resolve/main/vocab.txt from cache at /home/anna/.cache/huggingface/transformers/6508e60ab3c1200bffa26c95f4b58ac6b6d95fba4db1f195f632fa3cd7bc64cc.437aa611e89f6fc6675a049d2b5545390adbc617e7d655286421c191d2be2791
+loading file https://huggingface.co/bert-base-cased/resolve/main/added_tokens.json from cache at None
+loading file https://huggingface.co/bert-base-cased/resolve/main/special_tokens_map.json from cache at None
+loading file https://huggingface.co/bert-base-cased/resolve/main/tokenizer_config.json from cache at /home/anna/.cache/huggingface/transformers/ec84e86ee39bfe112543192cf981deebf7e6cbe8c91b8f7f8f63c9be44366158.ec5c189f89475aac7d8cbd243960a0655cfadc3d0474da8ff2ed0bf1699c2a5f
+loading file https://huggingface.co/bert-base-cased/resolve/main/tokenizer.json from cache at /home/anna/.cache/huggingface/transformers/226a307193a9f4344264cdc76a12988448a25345ba172f2c7421f3b6810fddad.3dab63143af66769bbb35e3811f75f7e16b2320e12b7935e216bd6159ce6d9a6
+INFO:root:Loading model from bert-base-cased ... 
+loading configuration file https://huggingface.co/bert-base-cased/resolve/main/config.json from cache at /home/anna/.cache/huggingface/transformers/a803e0468a8fe090683bdc453f4fac622804f49de86d7cecaee92365d4a0f829.a64a22196690e0e82ead56f388a3ef3a50de93335926ccfa20610217db589307
+Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.8.2",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 28996
+}
+
+loading weights file https://huggingface.co/bert-base-cased/resolve/main/pytorch_model.bin from cache at /home/anna/.cache/huggingface/transformers/092cc582560fc3833e556b3f833695c26343cb54b7e88cd02d40821462a74999.1f48cab6c959fc6c360d22bea39d06959e90f5b002e77e836d2da45464875cda
+Some weights of the model checkpoint at bert-base-cased were not used when initializing BertForNextSentencePrediction: ['cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForNextSentencePrediction from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForNextSentencePrediction from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+All the weights of BertForNextSentencePrediction were initialized from the model checkpoint at bert-base-cased.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use BertForNextSentencePrediction for predictions without further training.
+loading file https://huggingface.co/bert-base-cased/resolve/main/vocab.txt from cache at /home/anna/.cache/huggingface/transformers/6508e60ab3c1200bffa26c95f4b58ac6b6d95fba4db1f195f632fa3cd7bc64cc.437aa611e89f6fc6675a049d2b5545390adbc617e7d655286421c191d2be2791
+loading file https://huggingface.co/bert-base-cased/resolve/main/added_tokens.json from cache at None
+loading file https://huggingface.co/bert-base-cased/resolve/main/special_tokens_map.json from cache at None
+loading file https://huggingface.co/bert-base-cased/resolve/main/tokenizer_config.json from cache at /home/anna/.cache/huggingface/transformers/ec84e86ee39bfe112543192cf981deebf7e6cbe8c91b8f7f8f63c9be44366158.ec5c189f89475aac7d8cbd243960a0655cfadc3d0474da8ff2ed0bf1699c2a5f
+loading file https://huggingface.co/bert-base-cased/resolve/main/tokenizer.json from cache at /home/anna/.cache/huggingface/transformers/226a307193a9f4344264cdc76a12988448a25345ba172f2c7421f3b6810fddad.3dab63143af66769bbb35e3811f75f7e16b2320e12b7935e216bd6159ce6d9a6
+INFO:root:Finished loading model ...
+INFO:root:at batch number 0
+INFO:root:at batch number 1
+INFO:root:at batch number 2
+INFO:root:at batch number 3
+INFO:root:at batch number 4
+INFO:root:at batch number 5
+INFO:root:at batch number 6
+INFO:root:at batch number 7
+INFO:root:at batch number 8
+INFO:root:at batch number 9
+INFO:root:at batch number 10
+INFO:root:at batch number 11
+INFO:root:at batch number 12
+INFO:root:at batch number 13
+INFO:root:at batch number 14
+INFO:root:at batch number 15
+INFO:root:at batch number 16
+INFO:root:at batch number 17
+INFO:root:at batch number 18
+INFO:root:at batch number 19
+INFO:root:at batch number 20
+INFO:root:at batch number 21
+INFO:root:at batch number 22
+INFO:root:at batch number 23
+INFO:root:at batch number 24
+INFO:root:at batch number 25
+INFO:root:at batch number 26
+INFO:root:at batch number 27
+INFO:root:at batch number 28
+INFO:root:at batch number 29
+INFO:root:at batch number 30
+INFO:root:at batch number 31
+INFO:root:at batch number 32
+INFO:root:at batch number 33
+INFO:root:at batch number 34
+INFO:root:at batch number 35
+INFO:root:at batch number 36
+INFO:root:at batch number 37
+INFO:root:at batch number 38
+INFO:root:at batch number 39
+INFO:root:at batch number 40
+INFO:root:at batch number 41
+INFO:root:at batch number 42
+INFO:root:at batch number 43
+INFO:root:at batch number 44
+INFO:root:at batch number 45
+INFO:root:at batch number 46
+INFO:root:at batch number 47
+INFO:root:at batch number 48
+INFO:root:at batch number 49
+INFO:root:at batch number 50
+INFO:root:at batch number 51
+INFO:root:at batch number 52
+INFO:root:at batch number 53
+INFO:root:at batch number 54
+INFO:root:at batch number 55
+INFO:root:at batch number 56
+INFO:root:at batch number 57
+INFO:root:at batch number 58
+INFO:root:at batch number 59
+INFO:root:at batch number 60
+INFO:root:at batch number 61
+INFO:root:at batch number 62
+INFO:root:at batch number 63
+INFO:root:at batch number 64
+INFO:root:at batch number 65
+INFO:root:at batch number 66
+INFO:root:at batch number 67
+INFO:root:at batch number 68
+INFO:root:at batch number 69
+INFO:root:at batch number 70
+INFO:root:at batch number 71
+INFO:root:at batch number 72
+INFO:root:at batch number 73
+INFO:root:at batch number 74
+INFO:root:at batch number 75
+INFO:root:at batch number 76
+INFO:root:at batch number 77
+INFO:root:at batch number 78
+INFO:root:at batch number 79
+INFO:root:at batch number 80
+INFO:root:at batch number 81
+INFO:root:at batch number 82
+INFO:root:at batch number 83
+INFO:root:at batch number 84
+INFO:root:at batch number 85
+INFO:root:at batch number 86
+INFO:root:at batch number 87
+INFO:root:at batch number 88
+INFO:root:at batch number 89
+INFO:root:at batch number 90
+INFO:root:at batch number 91
+INFO:root:at batch number 92
+INFO:root:at batch number 93
+INFO:root:at batch number 94
+INFO:root:at batch number 95
+INFO:root:at batch number 96
+INFO:root:at batch number 97
+INFO:root:at batch number 98
+INFO:root:at batch number 99
+INFO:root:at batch number 100
+INFO:root:at batch number 101
+INFO:root:at batch number 102
+INFO:root:at batch number 103
+INFO:root:at batch number 104
+INFO:root:at batch number 105
+INFO:root:at batch number 106
+INFO:root:at batch number 107
+INFO:root:at batch number 108
+INFO:root:at batch number 109
+INFO:root:at batch number 110
+INFO:root:at batch number 111
+INFO:root:at batch number 112
+INFO:root:at batch number 113
+INFO:root:at batch number 114
+INFO:root:at batch number 115
+INFO:root:at batch number 116
+INFO:root:at batch number 117
+INFO:root:at batch number 118
+INFO:root:at batch number 119
+INFO:root:at batch number 120
+INFO:root:at batch number 121
+INFO:root:at batch number 122
+INFO:root:at batch number 123
+INFO:root:at batch number 124
+INFO:root:at batch number 125
+INFO:root:at batch number 126
+INFO:root:at batch number 127
+INFO:root:at batch number 128
+INFO:root:at batch number 129
+INFO:root:at batch number 130
+INFO:root:at batch number 131
+INFO:root:at batch number 132
+INFO:root:at batch number 133
+INFO:root:at batch number 134
+INFO:root:at batch number 135
+INFO:root:at batch number 136
+INFO:root:at batch number 137
+INFO:root:at batch number 138
+INFO:root:at batch number 139
+INFO:root:at batch number 140
+INFO:root:at batch number 141
+INFO:root:at batch number 142
+INFO:root:at batch number 143
+INFO:root:at batch number 144
+INFO:root:random assignments: 53
+INFO:root:  Accuracy at 0.6781236489407695, without random 0.6823008849557523 with 53 questions
+INFO:root:  Accuracy simplicity at 0.5799163179916318 for 1195 task instances, without random 0.5834061135371179 with 1145 left questions
+INFO:root:  Accuracy formality at 0.7657952069716776 for 918 task instances, without random 0.7657952069716776 with 918 left questions
+INFO:root:  Accuracy contraction at 0.955 for 100 task instances, without random 0.9690721649484536 with 97 left questions
+INFO:root:  Accuracy nbr_substitution at 0.77 for 100 task instances, without random 0.77 with 100 left questions
+INFO:root:Evaluation for method BERTUncasedNextSentenceSimilarity
+INFO:root:Loading model from bert-base-uncased ... 
+loading configuration file https://huggingface.co/bert-base-uncased/resolve/main/config.json from cache at /home/anna/.cache/huggingface/transformers/3c61d016573b14f7f008c02c4e51a366c67ab274726fe2910691e2a761acf43e.37395cee442ab11005bcd270f3c34464dc1704b715b5d7d52b1a461abe3b9e4e
+Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.8.2",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+loading weights file https://huggingface.co/bert-base-uncased/resolve/main/pytorch_model.bin from cache at /home/anna/.cache/huggingface/transformers/a8041bf617d7f94ea26d15e218abd04afc2004805632abc0ed2066aa16d50d04.faf6ea826ae9c5867d12b22257f9877e6b8367890837bd60f7c54a29633f7f2f
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertForNextSentencePrediction: ['cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertForNextSentencePrediction from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForNextSentencePrediction from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+All the weights of BertForNextSentencePrediction were initialized from the model checkpoint at bert-base-uncased.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use BertForNextSentencePrediction for predictions without further training.
+loading file https://huggingface.co/bert-base-uncased/resolve/main/vocab.txt from cache at /home/anna/.cache/huggingface/transformers/45c3f7a79a80e1cf0a489e5c62b43f173c15db47864303a55d623bb3c96f72a5.d789d64ebfe299b0e416afc4a169632f903f693095b4629a7ea271d5a0cf2c99
+loading file https://huggingface.co/bert-base-uncased/resolve/main/added_tokens.json from cache at None
+loading file https://huggingface.co/bert-base-uncased/resolve/main/special_tokens_map.json from cache at None
+loading file https://huggingface.co/bert-base-uncased/resolve/main/tokenizer_config.json from cache at /home/anna/.cache/huggingface/transformers/c1d7f0a763fb63861cc08553866f1fc3e5a6f4f07621be277452d26d71303b7e.20430bd8e10ef77a7d2977accefe796051e01bc2fc4aa146bc862997a1a15e79
+loading file https://huggingface.co/bert-base-uncased/resolve/main/tokenizer.json from cache at /home/anna/.cache/huggingface/transformers/534479488c54aeaf9c3406f647aa2ec13648c06771ffe269edabebd4c412da1d.7f2721073f19841be16f41b0a70b600ca6b880c8f3df6f3535cbc704371bdfa4
+INFO:root:Finished loading model ...
+INFO:root:at batch number 0
+INFO:root:at batch number 1
+INFO:root:at batch number 2
+INFO:root:at batch number 3
+INFO:root:at batch number 4
+INFO:root:at batch number 5
+INFO:root:at batch number 6
+INFO:root:at batch number 7
+INFO:root:at batch number 8
+INFO:root:at batch number 9
+INFO:root:at batch number 10
+INFO:root:at batch number 11
+INFO:root:at batch number 12
+INFO:root:at batch number 13
+INFO:root:at batch number 14
+INFO:root:at batch number 15
+INFO:root:at batch number 16
+INFO:root:at batch number 17
+INFO:root:at batch number 18
+INFO:root:at batch number 19
+INFO:root:at batch number 20
+INFO:root:at batch number 21
+INFO:root:at batch number 22
+INFO:root:at batch number 23
+INFO:root:at batch number 24
+INFO:root:at batch number 25
+INFO:root:at batch number 26
+INFO:root:at batch number 27
+INFO:root:at batch number 28
+INFO:root:at batch number 29
+INFO:root:at batch number 30
+INFO:root:at batch number 31
+INFO:root:at batch number 32
+INFO:root:at batch number 33
+INFO:root:at batch number 34
+INFO:root:at batch number 35
+INFO:root:at batch number 36
+INFO:root:at batch number 37
+INFO:root:at batch number 38
+INFO:root:at batch number 39
+INFO:root:at batch number 40
+INFO:root:at batch number 41
+INFO:root:at batch number 42
+INFO:root:at batch number 43
+INFO:root:at batch number 44
+INFO:root:at batch number 45
+INFO:root:at batch number 46
+INFO:root:at batch number 47
+INFO:root:at batch number 48
+INFO:root:at batch number 49
+INFO:root:at batch number 50
+INFO:root:at batch number 51
+INFO:root:at batch number 52
+INFO:root:at batch number 53
+INFO:root:at batch number 54
+INFO:root:at batch number 55
+INFO:root:at batch number 56
+INFO:root:at batch number 57
+INFO:root:at batch number 58
+INFO:root:at batch number 59
+INFO:root:at batch number 60
+INFO:root:at batch number 61
+INFO:root:at batch number 62
+INFO:root:at batch number 63
+INFO:root:at batch number 64
+INFO:root:at batch number 65
+INFO:root:at batch number 66
+INFO:root:at batch number 67
+INFO:root:at batch number 68
+INFO:root:at batch number 69
+INFO:root:at batch number 70
+INFO:root:at batch number 71
+INFO:root:at batch number 72
+INFO:root:at batch number 73
+INFO:root:at batch number 74
+INFO:root:at batch number 75
+INFO:root:at batch number 76
+INFO:root:at batch number 77
+INFO:root:at batch number 78
+INFO:root:at batch number 79
+INFO:root:at batch number 80
+INFO:root:at batch number 81
+INFO:root:at batch number 82
+INFO:root:at batch number 83
+INFO:root:at batch number 84
+INFO:root:at batch number 85
+INFO:root:at batch number 86
+INFO:root:at batch number 87
+INFO:root:at batch number 88
+INFO:root:at batch number 89
+INFO:root:at batch number 90
+INFO:root:at batch number 91
+INFO:root:at batch number 92
+INFO:root:at batch number 93
+INFO:root:at batch number 94
+INFO:root:at batch number 95
+INFO:root:at batch number 96
+INFO:root:at batch number 97
+INFO:root:at batch number 98
+INFO:root:at batch number 99
+INFO:root:at batch number 100
+INFO:root:at batch number 101
+INFO:root:at batch number 102
+INFO:root:at batch number 103
+INFO:root:at batch number 104
+INFO:root:at batch number 105
+INFO:root:at batch number 106
+INFO:root:at batch number 107
+INFO:root:at batch number 108
+INFO:root:at batch number 109
+INFO:root:at batch number 110
+INFO:root:at batch number 111
+INFO:root:at batch number 112
+INFO:root:at batch number 113
+INFO:root:at batch number 114
+INFO:root:at batch number 115
+INFO:root:at batch number 116
+INFO:root:at batch number 117
+INFO:root:at batch number 118
+INFO:root:at batch number 119
+INFO:root:at batch number 120
+INFO:root:at batch number 121
+INFO:root:at batch number 122
+INFO:root:at batch number 123
+INFO:root:at batch number 124
+INFO:root:at batch number 125
+INFO:root:at batch number 126
+INFO:root:at batch number 127
+INFO:root:at batch number 128
+INFO:root:at batch number 129
+INFO:root:at batch number 130
+INFO:root:at batch number 131
+INFO:root:at batch number 132
+INFO:root:at batch number 133
+INFO:root:at batch number 134
+INFO:root:at batch number 135
+INFO:root:at batch number 136
+INFO:root:at batch number 137
+INFO:root:at batch number 138
+INFO:root:at batch number 139
+INFO:root:at batch number 140
+INFO:root:at batch number 141
+INFO:root:at batch number 142
+INFO:root:at batch number 143
+INFO:root:at batch number 144
+INFO:root:random assignments: 264
+INFO:root:  Accuracy at 0.6333765672287073, without random 0.6505612493899463 with 264 questions
+INFO:root:  Accuracy simplicity at 0.5669456066945606 for 1195 task instances, without random 0.5842105263157895 with 950 left questions
+INFO:root:  Accuracy formality at 0.7091503267973857 for 918 task instances, without random 0.7091503267973857 with 918 left questions
+INFO:root:  Accuracy contraction at 0.695 for 100 task instances, without random 0.7407407407407407 with 81 left questions
+INFO:root:  Accuracy nbr_substitution at 0.67 for 100 task instances, without random 0.67 with 100 left questions
+INFO:root:Evaluation for method MpnetSentenceBertSimilarity
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-mpnet-base-v2
+loading configuration file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_all-mpnet-base-v2/config.json
+Model config MPNetConfig {
+  "_name_or_path": "microsoft/mpnet-base",
+  "architectures": [
+    "MPNetForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "mpnet",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "relative_attention_num_buckets": 32,
+  "transformers_version": "4.8.2",
+  "vocab_size": 30527
+}
+
+loading weights file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_all-mpnet-base-v2/pytorch_model.bin
+All model checkpoint weights were used when initializing MPNetModel.
+
+All the weights of MPNetModel were initialized from the model checkpoint at /home/anna/.cache/torch/sentence_transformers/sentence-transformers_all-mpnet-base-v2/.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use MPNetModel for predictions without further training.
+Didn't find file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_all-mpnet-base-v2/added_tokens.json. We won't load it.
+loading file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_all-mpnet-base-v2/vocab.txt
+loading file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_all-mpnet-base-v2/tokenizer.json
+loading file None
+loading file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_all-mpnet-base-v2/special_tokens_map.json
+loading file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_all-mpnet-base-v2/tokenizer_config.json
+INFO:sentence_transformers.SentenceTransformer:Use pytorch device: cpu
+INFO:root:random assignments: 0
+INFO:root:  Accuracy at 0.5840899265023779, without random 0.5840899265023779 with 0 questions
+INFO:root:  Accuracy simplicity at 0.5213389121338912 for 1195 task instances, without random 0.5213389121338912 with 1195 left questions
+INFO:root:  Accuracy formality at 0.6241830065359477 for 918 task instances, without random 0.6241830065359477 with 918 left questions
+INFO:root:  Accuracy contraction at 0.84 for 100 task instances, without random 0.84 with 100 left questions
+INFO:root:  Accuracy nbr_substitution at 0.71 for 100 task instances, without random 0.71 with 100 left questions
+INFO:root:Evaluation for method ParaMpnetSentenceBertSimilarity
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: paraphrase-multilingual-mpnet-base-v2
+loading configuration file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_paraphrase-multilingual-mpnet-base-v2/config.json
+Model config XLMRobertaConfig {
+  "_name_or_path": "old_models/paraphrase-multilingual-mpnet-base-v2/0_Transformer",
+  "architectures": [
+    "XLMRobertaModel"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "xlm-roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "output_past": true,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.8.2",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 250002
+}
+
+loading weights file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_paraphrase-multilingual-mpnet-base-v2/pytorch_model.bin
+All model checkpoint weights were used when initializing XLMRobertaModel.
+
+All the weights of XLMRobertaModel were initialized from the model checkpoint at /home/anna/.cache/torch/sentence_transformers/sentence-transformers_paraphrase-multilingual-mpnet-base-v2/.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use XLMRobertaModel for predictions without further training.
+loading configuration file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_paraphrase-multilingual-mpnet-base-v2/config.json
+Model config XLMRobertaConfig {
+  "_name_or_path": "old_models/paraphrase-multilingual-mpnet-base-v2/0_Transformer",
+  "architectures": [
+    "XLMRobertaModel"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "xlm-roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "output_past": true,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.8.2",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 250002
+}
+
+Didn't find file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_paraphrase-multilingual-mpnet-base-v2/added_tokens.json. We won't load it.
+loading file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_paraphrase-multilingual-mpnet-base-v2/sentencepiece.bpe.model
+loading file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_paraphrase-multilingual-mpnet-base-v2/tokenizer.json
+loading file None
+loading file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_paraphrase-multilingual-mpnet-base-v2/special_tokens_map.json
+loading file /home/anna/.cache/torch/sentence_transformers/sentence-transformers_paraphrase-multilingual-mpnet-base-v2/tokenizer_config.json
+INFO:sentence_transformers.SentenceTransformer:Use pytorch device: cpu
+INFO:root:random assignments: 0
+INFO:root:  Accuracy at 0.6480760916558582, without random 0.6480760916558582 with 0 questions
+INFO:root:  Accuracy simplicity at 0.5397489539748954 for 1195 task instances, without random 0.5397489539748954 with 1195 left questions
+INFO:root:  Accuracy formality at 0.7178649237472767 for 918 task instances, without random 0.7178649237472767 with 918 left questions
+INFO:root:  Accuracy contraction at 1.0 for 100 task instances, without random 1.0 with 100 left questions
+INFO:root:  Accuracy nbr_substitution at 0.95 for 100 task instances, without random 0.95 with 100 left questions
+INFO:root:Evaluation for method CasedBertSimilarity
+loading configuration file https://huggingface.co/bert-base-cased/resolve/main/config.json from cache at /home/anna/.cache/huggingface/transformers/a803e0468a8fe090683bdc453f4fac622804f49de86d7cecaee92365d4a0f829.a64a22196690e0e82ead56f388a3ef3a50de93335926ccfa20610217db589307
+Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.8.2",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 28996
+}
+
+loading weights file https://huggingface.co/bert-base-cased/resolve/main/pytorch_model.bin from cache at /home/anna/.cache/huggingface/transformers/092cc582560fc3833e556b3f833695c26343cb54b7e88cd02d40821462a74999.1f48cab6c959fc6c360d22bea39d06959e90f5b002e77e836d2da45464875cda
+Some weights of the model checkpoint at bert-base-cased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+All the weights of BertModel were initialized from the model checkpoint at bert-base-cased.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use BertModel for predictions without further training.
+loading file https://huggingface.co/bert-base-cased/resolve/main/vocab.txt from cache at /home/anna/.cache/huggingface/transformers/6508e60ab3c1200bffa26c95f4b58ac6b6d95fba4db1f195f632fa3cd7bc64cc.437aa611e89f6fc6675a049d2b5545390adbc617e7d655286421c191d2be2791
+loading file https://huggingface.co/bert-base-cased/resolve/main/added_tokens.json from cache at None
+loading file https://huggingface.co/bert-base-cased/resolve/main/special_tokens_map.json from cache at None
+loading file https://huggingface.co/bert-base-cased/resolve/main/tokenizer_config.json from cache at /home/anna/.cache/huggingface/transformers/ec84e86ee39bfe112543192cf981deebf7e6cbe8c91b8f7f8f63c9be44366158.ec5c189f89475aac7d8cbd243960a0655cfadc3d0474da8ff2ed0bf1699c2a5f
+loading file https://huggingface.co/bert-base-cased/resolve/main/tokenizer.json from cache at /home/anna/.cache/huggingface/transformers/226a307193a9f4344264cdc76a12988448a25345ba172f2c7421f3b6810fddad.3dab63143af66769bbb35e3811f75f7e16b2320e12b7935e216bd6159ce6d9a6
+INFO:root:at batch number 0
+INFO:root:at batch number 1
+INFO:root:at batch number 2
+INFO:root:at batch number 3
+INFO:root:at batch number 4
+INFO:root:at batch number 5
+INFO:root:at batch number 6
+INFO:root:at batch number 7
+INFO:root:at batch number 8
+INFO:root:at batch number 9
+INFO:root:at batch number 10
+INFO:root:at batch number 11
+INFO:root:at batch number 12
+INFO:root:at batch number 13
+INFO:root:at batch number 14
+INFO:root:at batch number 15
+INFO:root:at batch number 16
+INFO:root:at batch number 17
+INFO:root:at batch number 18
+INFO:root:at batch number 19
+INFO:root:at batch number 20
+INFO:root:at batch number 21
+INFO:root:at batch number 22
+INFO:root:at batch number 23
+INFO:root:at batch number 24
+INFO:root:at batch number 25
+INFO:root:at batch number 26
+INFO:root:at batch number 27
+INFO:root:at batch number 28
+INFO:root:at batch number 29
+INFO:root:at batch number 30
+INFO:root:at batch number 31
+INFO:root:at batch number 32
+INFO:root:at batch number 33
+INFO:root:at batch number 34
+INFO:root:at batch number 35
+INFO:root:at batch number 36
+INFO:root:at batch number 37
+INFO:root:at batch number 38
+INFO:root:at batch number 39
+INFO:root:at batch number 40
+INFO:root:at batch number 41
+INFO:root:at batch number 42
+INFO:root:at batch number 43
+INFO:root:at batch number 44
+INFO:root:at batch number 45
+INFO:root:at batch number 46
+INFO:root:at batch number 47
+INFO:root:at batch number 48
+INFO:root:at batch number 49
+INFO:root:at batch number 50
+INFO:root:at batch number 51
+INFO:root:at batch number 52
+INFO:root:at batch number 53
+INFO:root:at batch number 54
+INFO:root:at batch number 55
+INFO:root:at batch number 56
+INFO:root:at batch number 57
+INFO:root:at batch number 58
+INFO:root:at batch number 59
+INFO:root:at batch number 60
+INFO:root:at batch number 61
+INFO:root:at batch number 62
+INFO:root:at batch number 63
+INFO:root:at batch number 64
+INFO:root:at batch number 65
+INFO:root:at batch number 66
+INFO:root:at batch number 67
+INFO:root:at batch number 68
+INFO:root:at batch number 69
+INFO:root:at batch number 70
+INFO:root:at batch number 71
+INFO:root:at batch number 72
+INFO:root:at batch number 73
+INFO:root:at batch number 74
+INFO:root:at batch number 75
+INFO:root:at batch number 76
+INFO:root:at batch number 77
+INFO:root:at batch number 78
+INFO:root:at batch number 79
+INFO:root:at batch number 80
+INFO:root:at batch number 81
+INFO:root:at batch number 82
+INFO:root:at batch number 83
+INFO:root:at batch number 84
+INFO:root:at batch number 85
+INFO:root:at batch number 86
+INFO:root:at batch number 87
+INFO:root:at batch number 88
+INFO:root:at batch number 89
+INFO:root:at batch number 90
+INFO:root:at batch number 91
+INFO:root:at batch number 92
+INFO:root:at batch number 93
+INFO:root:at batch number 94
+INFO:root:at batch number 95
+INFO:root:at batch number 96
+INFO:root:at batch number 97
+INFO:root:at batch number 98
+INFO:root:at batch number 99
+INFO:root:at batch number 100
+INFO:root:at batch number 101
+INFO:root:at batch number 102
+INFO:root:at batch number 103
+INFO:root:at batch number 104
+INFO:root:at batch number 105
+INFO:root:at batch number 106
+INFO:root:at batch number 107
+INFO:root:at batch number 108
+INFO:root:at batch number 109
+INFO:root:at batch number 110
+INFO:root:at batch number 111
+INFO:root:at batch number 112
+INFO:root:at batch number 113
+INFO:root:at batch number 114
+INFO:root:at batch number 115
+INFO:root:at batch number 116
+INFO:root:at batch number 117
+INFO:root:at batch number 118
+INFO:root:at batch number 119
+INFO:root:at batch number 120
+INFO:root:at batch number 121
+INFO:root:at batch number 122
+INFO:root:at batch number 123
+INFO:root:at batch number 124
+INFO:root:at batch number 125
+INFO:root:at batch number 126
+INFO:root:at batch number 127
+INFO:root:at batch number 128
+INFO:root:at batch number 129
+INFO:root:at batch number 130
+INFO:root:at batch number 131
+INFO:root:at batch number 132
+INFO:root:at batch number 133
+INFO:root:at batch number 134
+INFO:root:at batch number 135
+INFO:root:at batch number 136
+INFO:root:at batch number 137
+INFO:root:at batch number 138
+INFO:root:at batch number 139
+INFO:root:at batch number 140
+INFO:root:at batch number 141
+INFO:root:at batch number 142
+INFO:root:at batch number 143
+INFO:root:at batch number 144
+INFO:root:at batch number 0
+INFO:root:at batch number 1
+INFO:root:at batch number 2
+INFO:root:at batch number 3
+INFO:root:at batch number 4
+INFO:root:at batch number 5
+INFO:root:at batch number 6
+INFO:root:at batch number 7
+INFO:root:at batch number 8
+INFO:root:at batch number 9
+INFO:root:at batch number 10
+INFO:root:at batch number 11
+INFO:root:at batch number 12
+INFO:root:at batch number 13
+INFO:root:at batch number 14
+INFO:root:at batch number 15
+INFO:root:at batch number 16
+INFO:root:at batch number 17
+INFO:root:at batch number 18
+INFO:root:at batch number 19
+INFO:root:at batch number 20
+INFO:root:at batch number 21
+INFO:root:at batch number 22
+INFO:root:at batch number 23
+INFO:root:at batch number 24
+INFO:root:at batch number 25
+INFO:root:at batch number 26
+INFO:root:at batch number 27
+INFO:root:at batch number 28
+INFO:root:at batch number 29
+INFO:root:at batch number 30
+INFO:root:at batch number 31
+INFO:root:at batch number 32
+INFO:root:at batch number 33
+INFO:root:at batch number 34
+INFO:root:at batch number 35
+INFO:root:at batch number 36
+INFO:root:at batch number 37
+INFO:root:at batch number 38
+INFO:root:at batch number 39
+INFO:root:at batch number 40
+INFO:root:at batch number 41
+INFO:root:at batch number 42
+INFO:root:at batch number 43
+INFO:root:at batch number 44
+INFO:root:at batch number 45
+INFO:root:at batch number 46
+INFO:root:at batch number 47
+INFO:root:at batch number 48
+INFO:root:at batch number 49
+INFO:root:at batch number 50
+INFO:root:at batch number 51
+INFO:root:at batch number 52
+INFO:root:at batch number 53
+INFO:root:at batch number 54
+INFO:root:at batch number 55
+INFO:root:at batch number 56
+INFO:root:at batch number 57
+INFO:root:at batch number 58
+INFO:root:at batch number 59
+INFO:root:at batch number 60
+INFO:root:at batch number 61
+INFO:root:at batch number 62
+INFO:root:at batch number 63
+INFO:root:at batch number 64
+INFO:root:at batch number 65
+INFO:root:at batch number 66
+INFO:root:at batch number 67
+INFO:root:at batch number 68
+INFO:root:at batch number 69
+INFO:root:at batch number 70
+INFO:root:at batch number 71
+INFO:root:at batch number 72
+INFO:root:at batch number 73
+INFO:root:at batch number 74
+INFO:root:at batch number 75
+INFO:root:at batch number 76
+INFO:root:at batch number 77
+INFO:root:at batch number 78
+INFO:root:at batch number 79
+INFO:root:at batch number 80
+INFO:root:at batch number 81
+INFO:root:at batch number 82
+INFO:root:at batch number 83
+INFO:root:at batch number 84
+INFO:root:at batch number 85
+INFO:root:at batch number 86
+INFO:root:at batch number 87
+INFO:root:at batch number 88
+INFO:root:at batch number 89
+INFO:root:at batch number 90
+INFO:root:at batch number 91
+INFO:root:at batch number 92
+INFO:root:at batch number 93
+INFO:root:at batch number 94
+INFO:root:at batch number 95
+INFO:root:at batch number 96
+INFO:root:at batch number 97
+INFO:root:at batch number 98
+INFO:root:at batch number 99
+INFO:root:at batch number 100
+INFO:root:at batch number 101
+INFO:root:at batch number 102
+INFO:root:at batch number 103
+INFO:root:at batch number 104
+INFO:root:at batch number 105
+INFO:root:at batch number 106
+INFO:root:at batch number 107
+INFO:root:at batch number 108
+INFO:root:at batch number 109
+INFO:root:at batch number 110
+INFO:root:at batch number 111
+INFO:root:at batch number 112
+INFO:root:at batch number 113
+INFO:root:at batch number 114
+INFO:root:at batch number 115
+INFO:root:at batch number 116
+INFO:root:at batch number 117
+INFO:root:at batch number 118
+INFO:root:at batch number 119
+INFO:root:at batch number 120
+INFO:root:at batch number 121
+INFO:root:at batch number 122
+INFO:root:at batch number 123
+INFO:root:at batch number 124
+INFO:root:at batch number 125
+INFO:root:at batch number 126
+INFO:root:at batch number 127
+INFO:root:at batch number 128
+INFO:root:at batch number 129
+INFO:root:at batch number 130
+INFO:root:at batch number 131
+INFO:root:at batch number 132
+INFO:root:at batch number 133
+INFO:root:at batch number 134
+INFO:root:at batch number 135
+INFO:root:at batch number 136
+INFO:root:at batch number 137
+INFO:root:at batch number 138
+INFO:root:at batch number 139
+INFO:root:at batch number 140
+INFO:root:at batch number 141
+INFO:root:at batch number 142
+INFO:root:at batch number 143
+INFO:root:at batch number 144
+INFO:root:random assignments: 0
+INFO:root:  Accuracy at 0.7341115434500648, without random 0.7341115434500648 with 0 questions
+INFO:root:  Accuracy simplicity at 0.6418410041841004 for 1195 task instances, without random 0.6418410041841004 with 1195 left questions
+INFO:root:  Accuracy formality at 0.8050108932461874 for 918 task instances, without random 0.8050108932461874 with 918 left questions
+INFO:root:  Accuracy contraction at 1.0 for 100 task instances, without random 1.0 with 100 left questions
+INFO:root:  Accuracy nbr_substitution at 0.92 for 100 task instances, without random 0.92 with 100 left questions
+INFO:root:Evaluation for method RobertaSimilarity
+INFO:root:Loading model from roberta-base ... 
+loading configuration file https://huggingface.co/roberta-base/resolve/main/config.json from cache at /home/anna/.cache/huggingface/transformers/733bade19e5f0ce98e6531021dd5180994bb2f7b8bd7e80c7968805834ba351e.35205c6cfc956461d8515139f0f8dd5d207a2f336c0c3a83b4bc8dca3518e37b
+Model config RobertaConfig {
+  "architectures": [
+    "RobertaForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": 0,
+  "eos_token_id": 2,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 514,
+  "model_type": "roberta",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 1,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.8.2",
+  "type_vocab_size": 1,
+  "use_cache": true,
+  "vocab_size": 50265
+}
+
+loading weights file https://huggingface.co/roberta-base/resolve/main/pytorch_model.bin from cache at /home/anna/.cache/huggingface/transformers/51ba668f7ff34e7cdfa9561e8361747738113878850a7d717dbc69de8683aaad.c7efaa30a0d80b2958b876969faa180e485944a849deee4ad482332de65365a7
+Some weights of the model checkpoint at roberta-base were not used when initializing RobertaModel: ['lm_head.layer_norm.weight', 'lm_head.decoder.weight', 'lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.dense.bias', 'lm_head.bias']
+- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+All the weights of RobertaModel were initialized from the model checkpoint at roberta-base.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use RobertaModel for predictions without further training.
+loading file https://huggingface.co/roberta-base/resolve/main/vocab.json from cache at /home/anna/.cache/huggingface/transformers/d3ccdbfeb9aaa747ef20432d4976c32ee3fa69663b379deb253ccfce2bb1fdc5.d67d6b367eb24ab43b08ad55e014cf254076934f71d832bbab9ad35644a375ab
+loading file https://huggingface.co/roberta-base/resolve/main/merges.txt from cache at /home/anna/.cache/huggingface/transformers/cafdecc90fcab17011e12ac813dd574b4b3fea39da6dd817813efa010262ff3f.5d12962c5ee615a4c803841266e9c3be9a691a924f72d395d3a6c6c81157788b
+loading file https://huggingface.co/roberta-base/resolve/main/added_tokens.json from cache at None
+loading file https://huggingface.co/roberta-base/resolve/main/special_tokens_map.json from cache at None
+loading file https://huggingface.co/roberta-base/resolve/main/tokenizer_config.json from cache at None
+loading file https://huggingface.co/roberta-base/resolve/main/tokenizer.json from cache at /home/anna/.cache/huggingface/transformers/d53fc0fa09b8342651efd4073d75e19617b3e51287c2a535becda5808a8db287.fc9576039592f026ad76a1c231b89aee8668488c671dfbe6616bab2ed298d730
+INFO:root:Finished loading model ...
+INFO:root:at batch number 0
+INFO:root:at batch number 1
+INFO:root:at batch number 2
+INFO:root:at batch number 3
+INFO:root:at batch number 4
+INFO:root:at batch number 5
+INFO:root:at batch number 6
+INFO:root:at batch number 7
+INFO:root:at batch number 8
+INFO:root:at batch number 9
+INFO:root:at batch number 10
+INFO:root:at batch number 11
+INFO:root:at batch number 12
+INFO:root:at batch number 13
+INFO:root:at batch number 14
+INFO:root:at batch number 15
+INFO:root:at batch number 16
+INFO:root:at batch number 17
+INFO:root:at batch number 18
+INFO:root:at batch number 19
+INFO:root:at batch number 20
+INFO:root:at batch number 21
+INFO:root:at batch number 22
+INFO:root:at batch number 23
+INFO:root:at batch number 24
+INFO:root:at batch number 25
+INFO:root:at batch number 26
+INFO:root:at batch number 27
+INFO:root:at batch number 28
+INFO:root:at batch number 29
+INFO:root:at batch number 30
+INFO:root:at batch number 31
+INFO:root:at batch number 32
+INFO:root:at batch number 33
+INFO:root:at batch number 34
+INFO:root:at batch number 35
+INFO:root:at batch number 36
+INFO:root:at batch number 37
+INFO:root:at batch number 38
+INFO:root:at batch number 39
+INFO:root:at batch number 40
+INFO:root:at batch number 41
+INFO:root:at batch number 42
+INFO:root:at batch number 43
+INFO:root:at batch number 44
+INFO:root:at batch number 45
+INFO:root:at batch number 46
+INFO:root:at batch number 47
+INFO:root:at batch number 48
+INFO:root:at batch number 49
+INFO:root:at batch number 50
+INFO:root:at batch number 51
+INFO:root:at batch number 52
+INFO:root:at batch number 53
+INFO:root:at batch number 54
+INFO:root:at batch number 55
+INFO:root:at batch number 56
+INFO:root:at batch number 57
+INFO:root:at batch number 58
+INFO:root:at batch number 59
+INFO:root:at batch number 60
+INFO:root:at batch number 61
+INFO:root:at batch number 62
+INFO:root:at batch number 63
+INFO:root:at batch number 64
+INFO:root:at batch number 65
+INFO:root:at batch number 66
+INFO:root:at batch number 67
+INFO:root:at batch number 68
+INFO:root:at batch number 69
+INFO:root:at batch number 70
+INFO:root:at batch number 71
+INFO:root:at batch number 72
+INFO:root:at batch number 73
+INFO:root:at batch number 74
+INFO:root:at batch number 75
+INFO:root:at batch number 76
+INFO:root:at batch number 77
+INFO:root:at batch number 78
+INFO:root:at batch number 79
+INFO:root:at batch number 80
+INFO:root:at batch number 81
+INFO:root:at batch number 82
+INFO:root:at batch number 83
+INFO:root:at batch number 84
+INFO:root:at batch number 85
+INFO:root:at batch number 86
+INFO:root:at batch number 87
+INFO:root:at batch number 88
+INFO:root:at batch number 89
+INFO:root:at batch number 90
+INFO:root:at batch number 91
+INFO:root:at batch number 92
+INFO:root:at batch number 93
+INFO:root:at batch number 94
+INFO:root:at batch number 95
+INFO:root:at batch number 96
+INFO:root:at batch number 97
+INFO:root:at batch number 98
+INFO:root:at batch number 99
+INFO:root:at batch number 100
+INFO:root:at batch number 101
+INFO:root:at batch number 102
+INFO:root:at batch number 103
+INFO:root:at batch number 104
+INFO:root:at batch number 105
+INFO:root:at batch number 106
+INFO:root:at batch number 107
+INFO:root:at batch number 108
+INFO:root:at batch number 109
+INFO:root:at batch number 110
+INFO:root:at batch number 111
+INFO:root:at batch number 112
+INFO:root:at batch number 113
+INFO:root:at batch number 114
+INFO:root:at batch number 115
+INFO:root:at batch number 116
+INFO:root:at batch number 117
+INFO:root:at batch number 118
+INFO:root:at batch number 119
+INFO:root:at batch number 120
+INFO:root:at batch number 121
+INFO:root:at batch number 122
+INFO:root:at batch number 123
+INFO:root:at batch number 124
+INFO:root:at batch number 125
+INFO:root:at batch number 126
+INFO:root:at batch number 127
+INFO:root:at batch number 128
+INFO:root:at batch number 129
+INFO:root:at batch number 130
+INFO:root:at batch number 131
+INFO:root:at batch number 132
+INFO:root:at batch number 133
+INFO:root:at batch number 134
+INFO:root:at batch number 135
+INFO:root:at batch number 136
+INFO:root:at batch number 137
+INFO:root:at batch number 138
+INFO:root:at batch number 139
+INFO:root:at batch number 140
+INFO:root:at batch number 141
+INFO:root:at batch number 142
+INFO:root:at batch number 143
+INFO:root:at batch number 144
+INFO:root:at batch number 0
+INFO:root:at batch number 1
+INFO:root:at batch number 2
+INFO:root:at batch number 3
+INFO:root:at batch number 4
+INFO:root:at batch number 5
+INFO:root:at batch number 6
+INFO:root:at batch number 7
+INFO:root:at batch number 8
+INFO:root:at batch number 9
+INFO:root:at batch number 10
+INFO:root:at batch number 11
+INFO:root:at batch number 12
+INFO:root:at batch number 13
+INFO:root:at batch number 14
+INFO:root:at batch number 15
+INFO:root:at batch number 16
+INFO:root:at batch number 17
+INFO:root:at batch number 18
+INFO:root:at batch number 19
+INFO:root:at batch number 20
+INFO:root:at batch number 21
+INFO:root:at batch number 22
+INFO:root:at batch number 23
+INFO:root:at batch number 24
+INFO:root:at batch number 25
+INFO:root:at batch number 26
+INFO:root:at batch number 27
+INFO:root:at batch number 28
+INFO:root:at batch number 29
+INFO:root:at batch number 30
+INFO:root:at batch number 31
+INFO:root:at batch number 32
+INFO:root:at batch number 33
+INFO:root:at batch number 34
+INFO:root:at batch number 35
+INFO:root:at batch number 36
+INFO:root:at batch number 37
+INFO:root:at batch number 38
+INFO:root:at batch number 39
+INFO:root:at batch number 40
+INFO:root:at batch number 41
+INFO:root:at batch number 42
+INFO:root:at batch number 43
+INFO:root:at batch number 44
+INFO:root:at batch number 45
+INFO:root:at batch number 46
+INFO:root:at batch number 47
+INFO:root:at batch number 48
+INFO:root:at batch number 49
+INFO:root:at batch number 50
+INFO:root:at batch number 51
+INFO:root:at batch number 52
+INFO:root:at batch number 53
+INFO:root:at batch number 54
+INFO:root:at batch number 55
+INFO:root:at batch number 56
+INFO:root:at batch number 57
+INFO:root:at batch number 58
+INFO:root:at batch number 59
+INFO:root:at batch number 60
+INFO:root:at batch number 61
+INFO:root:at batch number 62
+INFO:root:at batch number 63
+INFO:root:at batch number 64
+INFO:root:at batch number 65
+INFO:root:at batch number 66
+INFO:root:at batch number 67
+INFO:root:at batch number 68
+INFO:root:at batch number 69
+INFO:root:at batch number 70
+INFO:root:at batch number 71
+INFO:root:at batch number 72
+INFO:root:at batch number 73
+INFO:root:at batch number 74
+INFO:root:at batch number 75
+INFO:root:at batch number 76
+INFO:root:at batch number 77
+INFO:root:at batch number 78
+INFO:root:at batch number 79
+INFO:root:at batch number 80
+INFO:root:at batch number 81
+INFO:root:at batch number 82
+INFO:root:at batch number 83
+INFO:root:at batch number 84
+INFO:root:at batch number 85
+INFO:root:at batch number 86
+INFO:root:at batch number 87
+INFO:root:at batch number 88
+INFO:root:at batch number 89
+INFO:root:at batch number 90
+INFO:root:at batch number 91
+INFO:root:at batch number 92
+INFO:root:at batch number 93
+INFO:root:at batch number 94
+INFO:root:at batch number 95
+INFO:root:at batch number 96
+INFO:root:at batch number 97
+INFO:root:at batch number 98
+INFO:root:at batch number 99
+INFO:root:at batch number 100
+INFO:root:at batch number 101
+INFO:root:at batch number 102
+INFO:root:at batch number 103
+INFO:root:at batch number 104
+INFO:root:at batch number 105
+INFO:root:at batch number 106
+INFO:root:at batch number 107
+INFO:root:at batch number 108
+INFO:root:at batch number 109
+INFO:root:at batch number 110
+INFO:root:at batch number 111
+INFO:root:at batch number 112
+INFO:root:at batch number 113
+INFO:root:at batch number 114
+INFO:root:at batch number 115
+INFO:root:at batch number 116
+INFO:root:at batch number 117
+INFO:root:at batch number 118
+INFO:root:at batch number 119
+INFO:root:at batch number 120
+INFO:root:at batch number 121
+INFO:root:at batch number 122
+INFO:root:at batch number 123
+INFO:root:at batch number 124
+INFO:root:at batch number 125
+INFO:root:at batch number 126
+INFO:root:at batch number 127
+INFO:root:at batch number 128
+INFO:root:at batch number 129
+INFO:root:at batch number 130
+INFO:root:at batch number 131
+INFO:root:at batch number 132
+INFO:root:at batch number 133
+INFO:root:at batch number 134
+INFO:root:at batch number 135
+INFO:root:at batch number 136
+INFO:root:at batch number 137
+INFO:root:at batch number 138
+INFO:root:at batch number 139
+INFO:root:at batch number 140
+INFO:root:at batch number 141
+INFO:root:at batch number 142
+INFO:root:at batch number 143
+INFO:root:at batch number 144
+INFO:root:random assignments: 0
+INFO:root:  Accuracy at 0.5901426718547341, without random 0.5901426718547341 with 0 questions
+INFO:root:  Accuracy simplicity at 0.5297071129707113 for 1195 task instances, without random 0.5297071129707113 with 1195 left questions
+INFO:root:  Accuracy formality at 0.6230936819172114 for 918 task instances, without random 0.6230936819172114 with 918 left questions
+INFO:root:  Accuracy contraction at 0.98 for 100 task instances, without random 0.98 with 100 left questions
+INFO:root:  Accuracy nbr_substitution at 0.62 for 100 task instances, without random 0.62 with 100 left questions
+INFO:root:Evaluation for method UncasedBertSimilarity
+loading configuration file https://huggingface.co/bert-base-uncased/resolve/main/config.json from cache at /home/anna/.cache/huggingface/transformers/3c61d016573b14f7f008c02c4e51a366c67ab274726fe2910691e2a761acf43e.37395cee442ab11005bcd270f3c34464dc1704b715b5d7d52b1a461abe3b9e4e
+Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.8.2",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+loading weights file https://huggingface.co/bert-base-uncased/resolve/main/pytorch_model.bin from cache at /home/anna/.cache/huggingface/transformers/a8041bf617d7f94ea26d15e218abd04afc2004805632abc0ed2066aa16d50d04.faf6ea826ae9c5867d12b22257f9877e6b8367890837bd60f7c54a29633f7f2f
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+All the weights of BertModel were initialized from the model checkpoint at bert-base-uncased.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use BertModel for predictions without further training.
+loading file https://huggingface.co/bert-base-uncased/resolve/main/vocab.txt from cache at /home/anna/.cache/huggingface/transformers/45c3f7a79a80e1cf0a489e5c62b43f173c15db47864303a55d623bb3c96f72a5.d789d64ebfe299b0e416afc4a169632f903f693095b4629a7ea271d5a0cf2c99
+loading file https://huggingface.co/bert-base-uncased/resolve/main/added_tokens.json from cache at None
+loading file https://huggingface.co/bert-base-uncased/resolve/main/special_tokens_map.json from cache at None
+loading file https://huggingface.co/bert-base-uncased/resolve/main/tokenizer_config.json from cache at /home/anna/.cache/huggingface/transformers/c1d7f0a763fb63861cc08553866f1fc3e5a6f4f07621be277452d26d71303b7e.20430bd8e10ef77a7d2977accefe796051e01bc2fc4aa146bc862997a1a15e79
+loading file https://huggingface.co/bert-base-uncased/resolve/main/tokenizer.json from cache at /home/anna/.cache/huggingface/transformers/534479488c54aeaf9c3406f647aa2ec13648c06771ffe269edabebd4c412da1d.7f2721073f19841be16f41b0a70b600ca6b880c8f3df6f3535cbc704371bdfa4
+INFO:root:at batch number 0
+INFO:root:at batch number 1
+INFO:root:at batch number 2
+INFO:root:at batch number 3
+INFO:root:at batch number 4
+INFO:root:at batch number 5
+INFO:root:at batch number 6
+INFO:root:at batch number 7
+INFO:root:at batch number 8
+INFO:root:at batch number 9
+INFO:root:at batch number 10
+INFO:root:at batch number 11
+INFO:root:at batch number 12
+INFO:root:at batch number 13
+INFO:root:at batch number 14
+INFO:root:at batch number 15
+INFO:root:at batch number 16
+INFO:root:at batch number 17
+INFO:root:at batch number 18
+INFO:root:at batch number 19
+INFO:root:at batch number 20
+INFO:root:at batch number 21
+INFO:root:at batch number 22
+INFO:root:at batch number 23
+INFO:root:at batch number 24
+INFO:root:at batch number 25
+INFO:root:at batch number 26
+INFO:root:at batch number 27
+INFO:root:at batch number 28
+INFO:root:at batch number 29
+INFO:root:at batch number 30
+INFO:root:at batch number 31
+INFO:root:at batch number 32
+INFO:root:at batch number 33
+INFO:root:at batch number 34
+INFO:root:at batch number 35
+INFO:root:at batch number 36
+INFO:root:at batch number 37
+INFO:root:at batch number 38
+INFO:root:at batch number 39
+INFO:root:at batch number 40
+INFO:root:at batch number 41
+INFO:root:at batch number 42
+INFO:root:at batch number 43
+INFO:root:at batch number 44
+INFO:root:at batch number 45
+INFO:root:at batch number 46
+INFO:root:at batch number 47
+INFO:root:at batch number 48
+INFO:root:at batch number 49
+INFO:root:at batch number 50
+INFO:root:at batch number 51
+INFO:root:at batch number 52
+INFO:root:at batch number 53
+INFO:root:at batch number 54
+INFO:root:at batch number 55
+INFO:root:at batch number 56
+INFO:root:at batch number 57
+INFO:root:at batch number 58
+INFO:root:at batch number 59
+INFO:root:at batch number 60
+INFO:root:at batch number 61
+INFO:root:at batch number 62
+INFO:root:at batch number 63
+INFO:root:at batch number 64
+INFO:root:at batch number 65
+INFO:root:at batch number 66
+INFO:root:at batch number 67
+INFO:root:at batch number 68
+INFO:root:at batch number 69
+INFO:root:at batch number 70
+INFO:root:at batch number 71
+INFO:root:at batch number 72
+INFO:root:at batch number 73
+INFO:root:at batch number 74
+INFO:root:at batch number 75
+INFO:root:at batch number 76
+INFO:root:at batch number 77
+INFO:root:at batch number 78
+INFO:root:at batch number 79
+INFO:root:at batch number 80
+INFO:root:at batch number 81
+INFO:root:at batch number 82
+INFO:root:at batch number 83
+INFO:root:at batch number 84
+INFO:root:at batch number 85
+INFO:root:at batch number 86
+INFO:root:at batch number 87
+INFO:root:at batch number 88
+INFO:root:at batch number 89
+INFO:root:at batch number 90
+INFO:root:at batch number 91
+INFO:root:at batch number 92
+INFO:root:at batch number 93
+INFO:root:at batch number 94
+INFO:root:at batch number 95
+INFO:root:at batch number 96
+INFO:root:at batch number 97
+INFO:root:at batch number 98
+INFO:root:at batch number 99
+INFO:root:at batch number 100
+INFO:root:at batch number 101
+INFO:root:at batch number 102
+INFO:root:at batch number 103
+INFO:root:at batch number 104
+INFO:root:at batch number 105
+INFO:root:at batch number 106
+INFO:root:at batch number 107
+INFO:root:at batch number 108
+INFO:root:at batch number 109
+INFO:root:at batch number 110
+INFO:root:at batch number 111
+INFO:root:at batch number 112
+INFO:root:at batch number 113
+INFO:root:at batch number 114
+INFO:root:at batch number 115
+INFO:root:at batch number 116
+INFO:root:at batch number 117
+INFO:root:at batch number 118
+INFO:root:at batch number 119
+INFO:root:at batch number 120
+INFO:root:at batch number 121
+INFO:root:at batch number 122
+INFO:root:at batch number 123
+INFO:root:at batch number 124
+INFO:root:at batch number 125
+INFO:root:at batch number 126
+INFO:root:at batch number 127
+INFO:root:at batch number 128
+INFO:root:at batch number 129
+INFO:root:at batch number 130
+INFO:root:at batch number 131
+INFO:root:at batch number 132
+INFO:root:at batch number 133
+INFO:root:at batch number 134
+INFO:root:at batch number 135
+INFO:root:at batch number 136
+INFO:root:at batch number 137
+INFO:root:at batch number 138
+INFO:root:at batch number 139
+INFO:root:at batch number 140
+INFO:root:at batch number 141
+INFO:root:at batch number 142
+INFO:root:at batch number 143
+INFO:root:at batch number 144
+INFO:root:at batch number 0
+INFO:root:at batch number 1
+INFO:root:at batch number 2
+INFO:root:at batch number 3
+INFO:root:at batch number 4
+INFO:root:at batch number 5
+INFO:root:at batch number 6
+INFO:root:at batch number 7
+INFO:root:at batch number 8
+INFO:root:at batch number 9
+INFO:root:at batch number 10
+INFO:root:at batch number 11
+INFO:root:at batch number 12
+INFO:root:at batch number 13
+INFO:root:at batch number 14
+INFO:root:at batch number 15
+INFO:root:at batch number 16
+INFO:root:at batch number 17
+INFO:root:at batch number 18
+INFO:root:at batch number 19
+INFO:root:at batch number 20
+INFO:root:at batch number 21
+INFO:root:at batch number 22
+INFO:root:at batch number 23
+INFO:root:at batch number 24
+INFO:root:at batch number 25
+INFO:root:at batch number 26
+INFO:root:at batch number 27
+INFO:root:at batch number 28
+INFO:root:at batch number 29
+INFO:root:at batch number 30
+INFO:root:at batch number 31
+INFO:root:at batch number 32
+INFO:root:at batch number 33
+INFO:root:at batch number 34
+INFO:root:at batch number 35
+INFO:root:at batch number 36
+INFO:root:at batch number 37
+INFO:root:at batch number 38
+INFO:root:at batch number 39
+INFO:root:at batch number 40
+INFO:root:at batch number 41
+INFO:root:at batch number 42
+INFO:root:at batch number 43
+INFO:root:at batch number 44
+INFO:root:at batch number 45
+INFO:root:at batch number 46
+INFO:root:at batch number 47
+INFO:root:at batch number 48
+INFO:root:at batch number 49
+INFO:root:at batch number 50
+INFO:root:at batch number 51
+INFO:root:at batch number 52
+INFO:root:at batch number 53
+INFO:root:at batch number 54
+INFO:root:at batch number 55
+INFO:root:at batch number 56
+INFO:root:at batch number 57
+INFO:root:at batch number 58
+INFO:root:at batch number 59
+INFO:root:at batch number 60
+INFO:root:at batch number 61
+INFO:root:at batch number 62
+INFO:root:at batch number 63
+INFO:root:at batch number 64
+INFO:root:at batch number 65
+INFO:root:at batch number 66
+INFO:root:at batch number 67
+INFO:root:at batch number 68
+INFO:root:at batch number 69
+INFO:root:at batch number 70
+INFO:root:at batch number 71
+INFO:root:at batch number 72
+INFO:root:at batch number 73
+INFO:root:at batch number 74
+INFO:root:at batch number 75
+INFO:root:at batch number 76
+INFO:root:at batch number 77
+INFO:root:at batch number 78
+INFO:root:at batch number 79
+INFO:root:at batch number 80
+INFO:root:at batch number 81
+INFO:root:at batch number 82
+INFO:root:at batch number 83
+INFO:root:at batch number 84
+INFO:root:at batch number 85
+INFO:root:at batch number 86
+INFO:root:at batch number 87
+INFO:root:at batch number 88
+INFO:root:at batch number 89
+INFO:root:at batch number 90
+INFO:root:at batch number 91
+INFO:root:at batch number 92
+INFO:root:at batch number 93
+INFO:root:at batch number 94
+INFO:root:at batch number 95
+INFO:root:at batch number 96
+INFO:root:at batch number 97
+INFO:root:at batch number 98
+INFO:root:at batch number 99
+INFO:root:at batch number 100
+INFO:root:at batch number 101
+INFO:root:at batch number 102
+INFO:root:at batch number 103
+INFO:root:at batch number 104
+INFO:root:at batch number 105
+INFO:root:at batch number 106
+INFO:root:at batch number 107
+INFO:root:at batch number 108
+INFO:root:at batch number 109
+INFO:root:at batch number 110
+INFO:root:at batch number 111
+INFO:root:at batch number 112
+INFO:root:at batch number 113
+INFO:root:at batch number 114
+INFO:root:at batch number 115
+INFO:root:at batch number 116
+INFO:root:at batch number 117
+INFO:root:at batch number 118
+INFO:root:at batch number 119
+INFO:root:at batch number 120
+INFO:root:at batch number 121
+INFO:root:at batch number 122
+INFO:root:at batch number 123
+INFO:root:at batch number 124
+INFO:root:at batch number 125
+INFO:root:at batch number 126
+INFO:root:at batch number 127
+INFO:root:at batch number 128
+INFO:root:at batch number 129
+INFO:root:at batch number 130
+INFO:root:at batch number 131
+INFO:root:at batch number 132
+INFO:root:at batch number 133
+INFO:root:at batch number 134
+INFO:root:at batch number 135
+INFO:root:at batch number 136
+INFO:root:at batch number 137
+INFO:root:at batch number 138
+INFO:root:at batch number 139
+INFO:root:at batch number 140
+INFO:root:at batch number 141
+INFO:root:at batch number 142
+INFO:root:at batch number 143
+INFO:root:at batch number 144
+INFO:root:random assignments: 0
+INFO:root:  Accuracy at 0.706441850410722, without random 0.706441850410722 with 0 questions
+INFO:root:  Accuracy simplicity at 0.6284518828451883 for 1195 task instances, without random 0.6284518828451883 with 1195 left questions
+INFO:root:  Accuracy formality at 0.7657952069716776 for 918 task instances, without random 0.7657952069716776 with 918 left questions
+INFO:root:  Accuracy contraction at 0.9 for 100 task instances, without random 0.9 with 100 left questions
+INFO:root:  Accuracy nbr_substitution at 0.9 for 100 task instances, without random 0.9 with 100 left questions
+                           Model Name  Accuracy  Accuracy simplicity  \
+0               LevenshteinSimilarity  0.529831             0.514644   
+1        CharacterThreeGramSimilarity  0.530264             0.500837   
+2               PunctuationSimilarity  0.545396             0.493305   
+3                WordLengthSimilarity  0.568742             0.574059   
+4                 UppercaseSimilarity  0.544747             0.511297   
+5                    PosTagSimilarity  0.524859             0.523013   
+6                 LIWCStyleSimilarity  0.500000             0.500000   
+7                      LIWCSimilarity  0.537830             0.517992   
+8              LIWCFunctionSimilarity  0.521617             0.508787   
+9                       USESimilarity  0.560960             0.522176   
+10    BERTCasedNextSentenceSimilarity  0.678124             0.579916   
+11  BERTUncasedNextSentenceSimilarity  0.633377             0.566946   
+12        MpnetSentenceBertSimilarity  0.584090             0.521339   
+13    ParaMpnetSentenceBertSimilarity  0.648076             0.539749   
+14                CasedBertSimilarity  0.734112             0.641841   
+15                  RobertaSimilarity  0.590143             0.529707   
+16              UncasedBertSimilarity  0.706442             0.628452   
+
+    Accuracy formality  Accuracy contraction  Accuracy nbr_substitution  
+0             0.557734                 0.385                       0.50  
+1             0.565904                 0.640                       0.50  
+2             0.575708                 0.920                       0.50  
+3             0.526144                 0.940                       0.50  
+4             0.544118                 1.000                       0.50  
+5             0.527233                 0.500                       0.50  
+6             0.517429                 0.500                       0.50  
+7             0.520153                 0.990                       0.50  
+8             0.481481                 1.000                       0.50  
+9             0.577887                 0.850                       0.58  
+10            0.765795                 0.955                       0.77  
+11            0.709150                 0.695                       0.67  
+12            0.624183                 0.840                       0.71  
+13            0.717865                 1.000                       0.95  
+14            0.805011                 1.000                       0.92  
+15            0.623094                 0.980                       0.62  
+16            0.765795                 0.900                       0.90  
+INFO:root:Saved results to output/UNFILTERED-quadruple_all-models.tsv
+INFO:root:Saved single predictions to output/UNFILTERED_single-pred-quadruple_all-models.tsv

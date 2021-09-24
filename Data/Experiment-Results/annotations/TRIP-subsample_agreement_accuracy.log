@@ -1,0 +1,29 @@
+2021-04-29 09:16:14,222 : INFO : number of valid responses 216 which corresponds to a possible 604 questions
+2021-04-29 09:16:14,225 : INFO : Evaluating on 602 questions
+2021-04-29 09:16:14,290 : WARNING : the number of responses 6 for the question QQ_c-99-s-t7-99_s-t7-1560-c-1560--1 is higher than expected. Removing 1 "correct" votes.
+2021-04-29 09:16:14,475 : WARNING : the number of responses 6 for the question QQ_c-260-s-t2-260_c-567-s-t2-567--0 is higher than expected. Removing 1 "correct" votes.
+2021-04-29 09:16:14,917 : WARNING : the number of responses 6 for the question QQ_c-851-s-t5-851_c-152-s-t5-152--0 is higher than expected. Removing 1 "correct" votes.
+2021-04-29 09:16:15,431 : WARNING : the number of responses 6 for the question QQ_c-1094-s-t4-1094_s-t4-825-c-825--1 is higher than expected. Removing 1 "correct" votes.
+2021-04-29 09:16:16,437 : WARNING : the number of responses 6 for the question QQ_s-t4-2115-c-2115_s-t4-158-c-158--0 is higher than expected. Removing 1 "correct" votes.
+2021-04-29 09:16:16,767 : WARNING : the number of responses 6 for the question QQ_i-104-f-104_f-2220-i-2220--1 is higher than expected. Removing 1 "correct" votes.
+2021-04-29 09:16:17,055 : WARNING : the number of responses 6 for the question QQ_i-639-f-639_f-1981-i-1981--1 is higher than expected. Removing 1 "correct" votes.
+2021-04-29 09:16:17,258 : WARNING : the number of responses 6 for the question QQ_i-843-f-843_f-2198-i-2198--1 is higher than expected. Removing 1 "correct" votes.
+2021-04-29 09:16:17,714 : WARNING : the number of responses 6 for the question QQ_f-1548-i-1548_f-1540-i-1540--0 is higher than expected. Removing 1 "correct" votes.
+2021-04-29 09:16:17,880 : WARNING : the number of responses 6 for the question QQ_f-1770-i-1770_f-3268-i-3268--0 is higher than expected. Removing 1 "correct" votes.
+2021-04-29 09:16:18,050 : WARNING : the number of responses 6 for the question QQ_i-2074-f-2074_i-2158-f-2158--0 is higher than expected. Removing 1 "correct" votes.
+2021-04-29 09:16:18,792 : WARNING : the number of responses 6 for the question QQ_i-3076-f-3076_f-1220-i-1220--1 is higher than expected. Removing 1 "correct" votes.
+2021-04-29 09:16:21,512 : WARNING : the number of responses 6 for the question QQ_c-2150-s-t6-2150_s-t6-2219-c-2219--1 is higher than expected. Removing 1 "correct" votes.
+2021-04-29 09:16:21,890 : WARNING : the number of responses 6 for the question QQ_f-228-i-228_f-864-i-864--0 is higher than expected. Removing 1 "correct" votes.
+2021-04-29 09:16:24,207 : INFO : Saving results to ../test/output/trip_annotation-results.tsv
+2021-04-29 09:16:24,214 : INFO : Overall average Participant accuracy: 0.6005291005291006
+2021-04-29 09:16:24,228 : INFO : Number of Participants with less than 0.5 accuracy: 37/216
+2021-04-29 09:16:24,228 : INFO : Number of correct majority votes: 375/602 ~ 0.6229235880398671 Accuracy
+2021-04-29 09:16:24,228 : INFO : Number of correct simple maj votes: 153/301 ~ 0.5083056478405316 Accuracy
+2021-04-29 09:16:24,228 : INFO : Number of correct formal maj votes: 222/301 ~ 0.7375415282392026 Accuracy
+2021-04-29 09:16:24,228 : INFO : Number of borderline ratings, i.e., majority votes in [2, 3] is at 215/602 out of which 113 are correct ~ 0.5255813953488372 Accuracy
+2021-04-29 09:16:24,228 : INFO : Number of  simple borderline ratings: 138/301 out of which 67 are correct ~ 0.4855072463768116 Accuracy
+2021-04-29 09:16:24,228 : INFO : Number of formal borderline ratings: 77/301 out of which 46 are correct ~ 0.5974025974025974 Accuracy
+2021-04-29 09:16:24,233 : INFO : Overall Fleiss's Kappa: 0.2935751175450311
+2021-04-29 09:16:24,234 : INFO :   Simple Fleiss's Kappa: 0.18919110506206308
+2021-04-29 09:16:24,235 : INFO :   Formal Fleiss's Kappa: 0.39465369886458007
+

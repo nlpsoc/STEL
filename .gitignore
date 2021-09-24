@@ -1,0 +1,13 @@
+to_archive/
+_delete/
+.idea/
+RC_*
+enwiki-*
+output/*
+.ipynb_checkpoints/
+tex/
+output/
+# ADD to .gitignore for public release:
+Datasets/
+# ignore all files starting with _
+_*
