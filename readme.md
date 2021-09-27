@@ -291,4 +291,4 @@ We thank Yahoo for granting us the right to upload a sample of 100 task instance
 
 # Comments
 
-Thank you for your comments. You can use GitHub or address me (Anna, a.m.wegmann @ uu.nl) directly.
+Thank you for your comments and questions. You can use GitHub Issues or address me directly (Anna via a.m.wegmann @ uu.nl).
