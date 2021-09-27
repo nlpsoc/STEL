@@ -2,7 +2,7 @@ Thank you for your interest in STEL! This is the code going with the EMNLP 2021 
 
 # Quickstart
 
-You can find the raw data for STEL in Data/STEL. You will need to get permission to use the formality data from Verizon ([L6 - Yahoo! Answers ComprehensiveQuestions and Answers version 1.0 (multi part)](https://webscope.sandbox.yahoo.com/catalog.php?datatype=l)) as this is also the prerequisite for receiving the [GYAFC dataset](https://github.com/raosudha89/GYAFC-corpus). Please e-mail me (a.m.wegmann@uu.nl) with the permission to receive the full data necessary to run STEL. You will need to add the files to the repository as specified in ```to_add_const.py```.
+You can find the raw data for STEL in Data/STEL. You will need to get permission to use the formality data from Yahoo ([L6 - Yahoo! Answers ComprehensiveQuestions and Answers version 1.0 (multi part)](https://webscope.sandbox.yahoo.com/catalog.php?datatype=l)) as this is also the prerequisite for receiving the [GYAFC dataset](https://github.com/raosudha89/GYAFC-corpus). Please e-mail me (a.m.wegmann@uu.nl) with the permission to receive the full data necessary to run STEL. You will need to add the files to the repository as specified in ```to_add_const.py```.
 
 To use it, in the project folder src, call
 
@@ -287,5 +287,5 @@ and the papers that the dataset was (partly) generated from:
 }
 ```
 
-We thank Yahoo for granting us the right to upload a sample of 100 task instances from the formal/informal dimension. Please make sure to adhere to their Terms of Use.
+We thank Yahoo for granting us the right to upload a sample of 100 task instances from the formal/informal dimension. Please make sure to adhere to their Terms of Use. Especially asking for their permission to reuse any examples via ([L6 - Yahoo! Answers ComprehensiveQuestions and Answers version 1.0 (multi part)](https://webscope.sandbox.yahoo.com/catalog.php?datatype=l)).
 
