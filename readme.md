@@ -289,3 +289,6 @@ and the papers that the dataset was (partly) generated from:
 
 We thank Yahoo for granting us the right to upload a sample of 100 task instances from the formal/informal dimension. Please make sure to adhere to their Terms of Use. Especially asking for their permission to reuse any examples via [L6 - Yahoo! Answers ComprehensiveQuestions and Answers version 1.0 (multi part)](https://webscope.sandbox.yahoo.com/catalog.php?datatype=l).
 
+# Comments
+
+Thank you for your comments. You can use GitHub or address me (Anna, a.m.wegmann @ uu.nl) directly.
