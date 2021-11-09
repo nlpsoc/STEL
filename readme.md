@@ -243,14 +243,18 @@ For the **formal/informal STEL dimension**, you will need to get permission to u
 When using STEL please cite our paper
 
 ```
-@inproceedings{wegmann-nguyen-2021-STEL,
-      title={Does It Capture {STEL}? A Modular, Similarity-based Linguistic Style Evaluation Framework}, 
-      author={Anna Wegmann and Dong Nguyen},
-      year={2021},
-      eprint={2109.04817},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      booktitle={To appear at EMNLP 2021}
+@inproceedings{wegmann-nguyen-2021-capture,
+    title = "Does It Capture {STEL}? A Modular, Similarity-based Linguistic Style Evaluation Framework",
+    author = "Wegmann, Anna  and
+      Nguyen, Dong",
+    booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2021",
+    address = "Online and Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.emnlp-main.569",
+    pages = "7109--7130",
+    abstract = "Style is an integral part of natural language. However, evaluation methods for style measures are rare, often task-specific and usually do not control for content. We propose the modular, fine-grained and content-controlled similarity-based STyle EvaLuation framework (STEL) to test the performance of any model that can compare two sentences on style. We illustrate STEL with two general dimensions of style (formal/informal and simple/complex) as well as two specific characteristics of style (contrac{'}tion and numb3r substitution). We find that BERT-based methods outperform simple versions of commonly used style measures like 3-grams, punctuation frequency and LIWC-based approaches. We invite the addition of further tasks and task instances to STEL and hope to facilitate the improvement of style-sensitive measures.",
 }
 ```
 
