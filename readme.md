@@ -1,4 +1,4 @@
-Thank you for your interest in STEL! This is the code going with the EMNLP 2021 main conference paper [Does It Capture STEL? A Modular, Similarity-based Linguistic Style Evaluation Framework](https://arxiv.org/pdf/2109.04817.pdf).
+Thank you for your interest in STEL! This is the code going with the EMNLP 2021 main conference paper [Does It Capture STEL? A Modular, Similarity-based Linguistic Style Evaluation Framework](https://aclanthology.org/2021.emnlp-main.569/).
 
 # Quickstart
 
