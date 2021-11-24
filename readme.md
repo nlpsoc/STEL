@@ -1,8 +1,8 @@
-Thank you for your interest in STEL! This is the code going with the EMNLP 2021 main conference paper [Does It Capture STEL? A Modular, Similarity-based Linguistic Style Evaluation Framework](https://arxiv.org/pdf/2109.04817.pdf).
+Thank you for your interest in STEL! This is the code going with the EMNLP 2021 main conference paper [Does It Capture STEL? A Modular, Similarity-based Linguistic Style Evaluation Framework](https://aclanthology.org/2021.emnlp-main.569/).
 
 # Quickstart
 
-You can find the raw data for STEL in Data/STEL. You will need to get permission to use the formality data from Verizon ([L6 - Yahoo! Answers ComprehensiveQuestions and Answers version 1.0 (multi part)](https://webscope.sandbox.yahoo.com/catalog.php?datatype=l)) as this is also the prerequisite for receiving the [GYAFC dataset](https://github.com/raosudha89/GYAFC-corpus). Please e-mail me (a.m.wegmann@uu.nl) with the permission to receive the full data necessary to run STEL. You will need to add the files to the repository as specified in ```to_add_const.py```.
+You can find the raw data for STEL in Data/STEL. You will need to get permission to use the formality data from Yahoo ([L6 - Yahoo! Answers ComprehensiveQuestions and Answers version 1.0 (multi part)](https://webscope.sandbox.yahoo.com/catalog.php?datatype=l)) as this is also the prerequisite for receiving the [GYAFC dataset](https://github.com/raosudha89/GYAFC-corpus). Please e-mail me (a.m.wegmann@uu.nl) with the permission to receive the full data necessary to run STEL. You will need to add the files to the repository as specified in ```to_add_const.py```.
 
 To use it, in the project folder src, call
 
@@ -243,14 +243,18 @@ For the **formal/informal STEL dimension**, you will need to get permission to u
 When using STEL please cite our paper
 
 ```
-@inproceedings{wegmann-nguyen-2021-STEL,
-      title={Does It Capture {STEL}? A Modular, Similarity-based Linguistic Style Evaluation Framework}, 
-      author={Anna Wegmann and Dong Nguyen},
-      year={2021},
-      eprint={2109.04817},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      booktitle={To appear at EMNLP 2021}
+@inproceedings{wegmann-nguyen-2021-capture,
+    title = "Does It Capture {STEL}? A Modular, Similarity-based Linguistic Style Evaluation Framework",
+    author = "Wegmann, Anna  and
+      Nguyen, Dong",
+    booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2021",
+    address = "Online and Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.emnlp-main.569",
+    pages = "7109--7130",
+    abstract = "Style is an integral part of natural language. However, evaluation methods for style measures are rare, often task-specific and usually do not control for content. We propose the modular, fine-grained and content-controlled similarity-based STyle EvaLuation framework (STEL) to test the performance of any model that can compare two sentences on style. We illustrate STEL with two general dimensions of style (formal/informal and simple/complex) as well as two specific characteristics of style (contrac{'}tion and numb3r substitution). We find that BERT-based methods outperform simple versions of commonly used style measures like 3-grams, punctuation frequency and LIWC-based approaches. We invite the addition of further tasks and task instances to STEL and hope to facilitate the improvement of style-sensitive measures.",
 }
 ```
 
@@ -287,5 +291,8 @@ and the papers that the dataset was (partly) generated from:
 }
 ```
 
-We thank Yahoo for granting us the right to upload a sample of 100 task instances from the formal/informal dimension. Please make sure to adhere to their Terms of Use.
+We thank Yahoo for granting us the right to upload a sample of 100 task instances from the formal/informal dimension. Please make sure to adhere to their Terms of Use. Especially asking for their permission to reuse any examples via [L6 - Yahoo! Answers ComprehensiveQuestions and Answers version 1.0 (multi part)](https://webscope.sandbox.yahoo.com/catalog.php?datatype=l).
 
+# Comments
+
+Thank you for your comments and questions. You can use GitHub Issues or address me directly (Anna via a.m.wegmann @ uu.nl).
