@@ -279,9 +279,9 @@ def tokenize_sentences(texts: List[str], tokenizer):
     texts = [' '.join(text.split(' ')[:512]) for text in texts]
     encoded_dict = tokenizer(texts,
                              return_tensors='pt',
-                             max_length=512,
-                             padding="max_length",
-                             truncation="longest_first")
+                             # max_length=512,
+                             truncation=True,
+                             padding=True)
     # input_ids, token_type_ids, attention_mask
     return encoded_dict
 

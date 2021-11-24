@@ -60,7 +60,7 @@ ANCHOR2_COL = 'Anchor 2'
 ANCHOR1_COL = 'Anchor 1'
 NBR_FOR_CORRECT_COL = '# Votes out of 5 for Correct Alternative'
 ID_COL = 'ID'
-CORRECT_ALTERNATIVE_COL = 'Correct Alternative'
+CORRECT_ALTERNATIVE_COL = 'Correct Alternative'  # values either 1 or 2: 1 meaning A1, S1 is correct
 ALTERNATIVE2_COL = 'Alternative 2'
 ALTERNATIVE1_COL = 'Alternative 1'
 ANCHOR_COL = 'Anchor'
@@ -86,7 +86,7 @@ VAL_LEETSPEAK = "leetspeak"
 EVAL_BATCH_SIZE = 64
 cur_dir = os.path.dirname(os.path.realpath(__file__))
 if "uu_cs_nlpsoc" in cur_dir:
-    EVAL_BATCH_SIZE = 256
+    EVAL_BATCH_SIZE = 64
 logging.info('EVAL_BATCH_SIZE={}'.format(EVAL_BATCH_SIZE))
 
 

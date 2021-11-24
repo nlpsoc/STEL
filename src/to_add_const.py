@@ -11,8 +11,8 @@ cur_dir = os.path.dirname(os.path.realpath(__file__))
 #   filtered STEL data
 LOCAL_STEL_DIM_QUAD = [cur_dir + '/../Data/STEL/dimensions/_quad_stel-dimensions_formal-815_complex-815.tsv']
 #   UNTIL PERMISSION IS received using sample STEL data ...
-LOCAL_STEL_DIM_QUAD = [cur_dir + '/../Data/STEL/dimensions/quad_stel-dimension_simple-100_sample.tsv',
-                       cur_dir + '/../Data/STEL/dimensions/quad_stel-dimension_formal-100_sample.tsv']
+# LOCAL_STEL_DIM_QUAD = [cur_dir + '/../Data/STEL/dimensions/quad_stel-dimension_simple-100_sample.tsv',
+#                        cur_dir + '/../Data/STEL/dimensions/quad_stel-dimension_formal-100_sample.tsv']
 #   full STEL data with annotations
 LOCAL_ANN_STEL_DIM_QUAD = [cur_dir + '/../Data/Experiment-Results/annotations/_QUAD-full_annotations.tsv']
 

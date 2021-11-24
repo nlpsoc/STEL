@@ -60,7 +60,8 @@ STYLE_OBJECTS = [LevenshteinSimilarity(),
 
 def eval_sim(stel_char_tsv: List[str] = LOCAL_STEL_CHAR_QUAD, stel_dim_tsv: List[str] = LOCAL_STEL_DIM_QUAD,
              style_objects=STYLE_OBJECTS, output_folder='output/', eval_on_triple=False,
-             filter_majority_votes: bool = True, stel_instances: pd.DataFrame = None):
+             filter_majority_votes: bool = True, stel_instances: pd.DataFrame = None,
+             single_predictions_save_path = None):
     """
         running the evaluation of (language) models/methods on the similarity-based STyle EvaLuation Framework (STEL)
     :param stel_char_tsv: list of paths to pandas dataframes in the expected format
@@ -159,14 +160,21 @@ def eval_sim(stel_char_tsv: List[str] = LOCAL_STEL_CHAR_QUAD, stel_dim_tsv: List
     accuracy_results_df.to_csv(save_path, sep='\t')
     logging.info('Saved results to {}'.format(save_path))
 
-    save_filename = '{}_single-pred-{}'.format(eval_name, task_setup)
-    save_filename += model_names + '.tsv'
-    save_path = output_folder + save_filename
+    if not single_predictions_save_path:
+        save_filename = '{}_single-pred-{}'.format(eval_name, task_setup)
+        save_filename += model_names + '.tsv'
+        save_path = output_folder + save_filename
+    else:
+        save_path = single_predictions_save_path
     ensure_path_exists(save_path)
     prediction_df.to_csv(save_path, sep='\t')
     logging.info('Saved single predictions to {}'.format(save_path))
 
-    return accuracy_results_df, stel_instances
+    return {
+        "accuracies": accuracy_results_df,
+        "stel_tasks": stel_instances,
+        "single_predictions": prediction_df
+    }
 
 
 def ensure_path_exists(save_path):
