@@ -14,6 +14,7 @@ SEED = 1404
 def set_global_seed(w_torch=True, seed=SEED):
     """
     Make calculations reproducible by setting RANDOM seeds
+    :param seed:
     :param w_torch:
     :return:
     """
@@ -21,15 +22,15 @@ def set_global_seed(w_torch=True, seed=SEED):
         w_torch = False
     if w_torch:
         import torch
-        logging.info(f"Running in deterministic mode with seed {SEED}")
-        torch.manual_seed(SEED)
+        logging.info(f"Running in deterministic mode with seed {seed}")
+        torch.manual_seed(seed)
         if torch.cuda.is_available():
-            torch.cuda.manual_seed_all(SEED)
+            torch.cuda.manual_seed_all(seed)
         # torch.backends.cudnn.deterministic = True
         # torch.backends.cudnn.benchmark = False
-    numpy.random.seed(SEED)
-    random.seed(SEED)
-    os.environ['PYTHONHASHSEED'] = str(SEED)
+    numpy.random.seed(seed)
+    random.seed(seed)
+    os.environ['PYTHONHASHSEED'] = str(seed)
 
 
 def set_logging():
