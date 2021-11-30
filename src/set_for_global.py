@@ -11,7 +11,7 @@ import numpy
 SEED = 1404
 
 
-def set_global_seed(w_torch=True):
+def set_global_seed(w_torch=True, seed=SEED):
     """
     Make calculations reproducible by setting RANDOM seeds
     :param w_torch:
