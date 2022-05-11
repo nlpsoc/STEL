@@ -11,13 +11,16 @@ import numpy
 SEED = 1404
 
 
-def set_global_seed(w_torch=True, seed=SEED):
+def set_global_seed(seed=SEED, w_torch=True):
     """
     Make calculations reproducible by setting RANDOM seeds
     :param seed:
     :param w_torch:
     :return:
     """
+    # set the global variable to the new var throughout
+    global SEED
+    SEED = seed
     if 'torch' not in sys.modules:
         w_torch = False
     if w_torch:
