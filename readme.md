@@ -1,4 +1,4 @@
-**NOTE:** changing the batch size of BERT/RoBERTa changes performance. To get the highest possible performance, use an eval batch size of 1. 
+**NOTE:** With the current code, changing the batch size of RoBERTa changes its performance. To get the highest possible performance, use an eval batch size of 1. This is probably connected to the tokenization call and the used padding in the batch. To make sure you are not affected by this set eval batch size to 1 (performance of ~0.80 for RoBERTa instead of ~0.61), or even easier use the sentence-bert implementation of RoBERTa-base sentence representations, similar to [here](https://github.com/nlpsoc/Style-Embeddings/blob/78ec8cfb3d0493b7df11241897f412a52aee6f46/src/style_embed/utility/trained_similarities.py).
 
 
 Thank you for your interest in STEL! This is the code going with the EMNLP 2021 main conference paper [Does It Capture STEL? A Modular, Similarity-based Linguistic Style Evaluation Framework](https://aclanthology.org/2021.emnlp-main.569/).
