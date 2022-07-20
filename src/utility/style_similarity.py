@@ -28,6 +28,8 @@ import set_for_global
 
 set_for_global.set_logging()
 set_for_global.set_global_seed()
+
+
 # NON_VALID_FUNCTIONS_SIM_CLASS = ["static_deepstyle_sim", "__init__", "_apply_on_list"]
 
 
@@ -92,13 +94,18 @@ class LIWCStyleSimilarity(Similarity):
 
 
 class LIWCSimilarity(Similarity):
+
+    def __init__(self, liwc_path=LIWC_PATH):
+        super().__init__()
+        self.liwc_path = liwc_path
+
     def similarity(self, sentence_1: str, sentence_2: str) -> float:
         if len(sentence_1) == 0 and len(sentence_2) == 0:
             return self.SAME
         else:
             # parse, category_names = liwc.load_token_parser('../data/LIWC2015 Dictionary.dic')
-            vector1 = ModelBasedSentenceFeatures.get_liwc_count_vector(sentence_1)
-            vector2 = ModelBasedSentenceFeatures.get_liwc_count_vector(sentence_2)
+            vector1 = ModelBasedSentenceFeatures.get_liwc_count_vector(sentence_1, self.liwc_path)
+            vector2 = ModelBasedSentenceFeatures.get_liwc_count_vector(sentence_2, self.liwc_path)
             return cosine_sim(vector1, vector2)
 
 
@@ -295,14 +302,15 @@ class ModelBasedSentenceFeatures:
         return vectorizer_object.toarray()  # , vectorizer.get_feature_names()
 
     @staticmethod
-    def get_liwc_count_vector(text: str):
+    def get_liwc_count_vector(text: str, liwc_path=liwc_path):
         """
+        :param liwc_path:
         :param text:
         :return: frequency vector for each liwc category for texts
         """
         # see also: https://pypi.org/project/liwc/
         # parse is a function from a token of text to a list of matching LIWC categories
-        result_dict = ModelBasedSentenceFeatures.get_liwc_categories(text)
+        result_dict = ModelBasedSentenceFeatures.get_liwc_categories(text, liwc_path)
         liwc_vector = numpy.zeros(len(result_dict['category_names']))
         for key, value in result_dict['text_counts'].items():
             liwc_vector[result_dict['category_names'].index(key)] = value
@@ -558,4 +566,3 @@ def _annot_liwc_cats(utt: str, liwc_trie) -> set:
             cats |= cur["$"]
         last = c
     return cats
-
