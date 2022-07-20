@@ -202,7 +202,7 @@ When you add all necessary (partly proprietary) data to use ALL functionalities,
 pandas==1.1.3
 numpy==1.18.5
 scikit-learn==0.23.2
-nltk==3.6.2
+nltk==3.6.2  # for pos tagger 'averaged_perceptron_tagger', 'universal_tagset' and 'punkt' need to be downloaded
 typing==3.10.0.0
 ```
 
