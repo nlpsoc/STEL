@@ -1,3 +1,6 @@
+**NOTE:** With the current code, changing the batch size of RoBERTa changes its performance. To get the highest possible performance, use an eval batch size of 1. This is probably connected to the tokenization call and the used padding in the batch. To make sure you are not affected by this set eval batch size to 1 (performance of ~0.80 for RoBERTa instead of ~0.61), or even ,cleaner use the sentence-bert implementation for encoding sentences, similar to [here](https://github.com/nlpsoc/Style-Embeddings/blob/78ec8cfb3d0493b7df11241897f412a52aee6f46/src/style_embed/utility/trained_similarities.py).
+
+
 Thank you for your interest in STEL! This is the code going with the EMNLP 2021 main conference paper [Does It Capture STEL? A Modular, Similarity-based Linguistic Style Evaluation Framework](https://aclanthology.org/2021.emnlp-main.569/).
 
 # Quickstart
@@ -199,7 +202,7 @@ When you add all necessary (partly proprietary) data to use ALL functionalities,
 pandas==1.1.3
 numpy==1.18.5
 scikit-learn==0.23.2
-nltk==3.6.2
+nltk==3.6.2  # for pos tagger 'averaged_perceptron_tagger', 'universal_tagset' and 'punkt' need to be downloaded
 typing==3.10.0.0
 ```
 
@@ -214,6 +217,8 @@ transformers==3.5.1
 torch==1.7.0
 sentence-transformers==2.0.0
 scipy==1.7.1
+tensorflow==2.3.1
+tensorflow-hub==0.11.0 
 ```
 
 ### using deepstyle
