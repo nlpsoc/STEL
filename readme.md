@@ -218,6 +218,7 @@ torch==1.7.0
 sentence-transformers==2.0.0
 scipy==1.7.1
 tensorflow==2.3.1
+tensorflow-hub==0.11.0 
 ```
 
 ### using deepstyle
