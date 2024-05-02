@@ -10,9 +10,10 @@ You can find the raw data for STEL in Data/STEL. You will need to get permission
 To use it, in the project folder src, call
 
 ```python
-import eval_style_models
+import STEL.utility.eval_on_tasks
+import eval_on_STEL
 
-eval_style_models.eval_sim()
+STEL.STEL.eval_model()
 ```
 
 This will call all implemented style similarity models on the current version of STEL (except for deepstyle and LIWC based models).  Can take a long time. Might run into RAM problems (depending on your machine).
@@ -20,10 +21,12 @@ This will call all implemented style similarity models on the current version of
 To only call a specific method on style:
 
 ```python
-import eval_style_models
+import STEL.legacy_sim_classes
+import STEL.utility.eval_on_tasks
+import eval_on_STEL
 import style_similarity
 
-eval_style_models.eval_sim(style_objects=[style_similarity.WordLengthSimilarity()])
+STEL.STEL.eval_model(style_objects=[STEL.legacy_sim_classes.WordLengthSimilarity()])
 ```
 
 Do not forget the instantiation via '()'. See some further example calls in `example_eval_style_models.py`. You will need to set LOCAL_STEL_DIM_QUAD to `/Data/STEL/dimensions/_quad_stel-dimensions_formal-815_complex-815.tsv'`.
@@ -99,7 +102,9 @@ class MySimilarity(Similarity):
 To call this new method on STEL:
 
 ```python
-eval_style_models.eval_sim(style_objects=[MySimilarity()])
+import STEL.utility.eval_on_tasks
+
+STEL.STEL.eval_model(style_objects=[MySimilarity()])
 ```
 
 # Structure
@@ -196,30 +201,10 @@ When you add all necessary (partly proprietary) data to use ALL functionalities,
 
 ### STEL light
 
- Code tested on python 3.8.5. If you only want to use STEL with your own models, the relevant packages with the tested versions are:
-
-```
-pandas==1.1.3
-numpy==1.18.5
-scikit-learn==0.23.2
-nltk==3.6.2  # for pos tagger 'averaged_perceptron_tagger', 'universal_tagset' and 'punkt' need to be downloaded
-typing==3.10.0.0
-```
+ Code tested on python 3.11. If you only want to use STEL with your own models, the relevant packages with the tested versions are in requirements.txt
 
 Tested functionality for calling eval_style_models.py only.
 
-### STEL
-
-If you also want to call the neural similarity methods, you will also need the following packages: 
-
-```
-transformers==3.5.1
-torch==1.7.0
-sentence-transformers==2.0.0
-scipy==1.7.1
-tensorflow==2.3.1
-tensorflow-hub==0.11.0 
-```
 
 ### using deepstyle
 
@@ -245,7 +230,7 @@ For the **formal/informal STEL dimension**, you will need to get permission to u
 
 # Citation
 
-When using STEL please cite our paper
+When using STEL, consider citing our paper
 
 ```
 @inproceedings{wegmann-nguyen-2021-capture,
@@ -262,6 +247,26 @@ When using STEL please cite our paper
     abstract = "Style is an integral part of natural language. However, evaluation methods for style measures are rare, often task-specific and usually do not control for content. We propose the modular, fine-grained and content-controlled similarity-based STyle EvaLuation framework (STEL) to test the performance of any model that can compare two sentences on style. We illustrate STEL with two general dimensions of style (formal/informal and simple/complex) as well as two specific characteristics of style (contrac{'}tion and numb3r substitution). We find that BERT-based methods outperform simple versions of commonly used style measures like 3-grams, punctuation frequency and LIWC-based approaches. We invite the addition of further tasks and task instances to STEL and hope to facilitate the improvement of style-sensitive measures.",
 }
 ```
+
+When using the STEL-or-Content results, consider also citing:
+```
+@inproceedings{wegmann-etal-2022-author,
+    title = "Same Author or Just Same Topic? Towards Content-Independent Style Representations",
+    author = "Wegmann, Anna  and
+      Schraagen, Marijn  and
+      Nguyen, Dong",
+    booktitle = "Proceedings of the 7th Workshop on Representation Learning for NLP",
+    month = may,
+    year = "2022",
+    address = "Dublin, Ireland",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.repl4nlp-1.26",
+    doi = "10.18653/v1/2022.repl4nlp-1.26",
+    pages = "249--268",
+    abstract = "Linguistic style is an integral component of language. Recent advances in the development of style representations have increasingly used training objectives from authorship verification (AV){''}:{''} Do two texts have the same author? The assumption underlying the AV training task (same author approximates same writing style) enables self-supervised and, thus, extensive training. However, a good performance on the AV task does not ensure good {``}general-purpose{''} style representations. For example, as the same author might typically write about certain topics, representations trained on AV might also encode content information instead of style alone. We introduce a variation of the AV training task that controls for content using conversation or domain labels. We evaluate whether known style dimensions are represented and preferred over content information through an original variation to the recently proposed STEL framework. We find that representations trained by controlling for conversation are better than representations trained with domain or no content control at representing style independent from content.",
+}
+```
+
 
 and the papers that the dataset was (partly) generated from:
 

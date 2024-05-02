@@ -2,11 +2,11 @@
     sample questions from total for later annotation upload
 """
 import logging
-import set_for_global
+from STEL.utility import set_for_global
 import pandas as pd
 import os
 
-from set_for_global import ID_COL, IN_SUBSAMPLE_COL, VAL_SIMPLICITY, VAL_FORMALITY, STYLE_DIMS, FORMAL_KEY, SIMPLE_KEY
+from STEL.utility.set_for_global import ID_COL, IN_SUBSAMPLE_COL, SIMPLICITY, FORMALITY, STYLE_DIMS, FORMAL_KEY, SIMPLE_KEY
 
 # RATIO_COMPLEX_TO_FORMAL = 0.68/0.88
 COMPLEX_ACC = 0.68
@@ -51,8 +51,8 @@ def main(tsv_q, tsv_samples=None, sample_size=SAMPLE_SIZE, complex_acc=COMPLEX_A
 
         subsample_file_folder = os.path.dirname(tsv_q)
         subsample_file_name = "fullsample-{}_quad_questions".format(i+1)
-        subsample_file_name += "_{}-{}".format(VAL_SIMPLICITY, int(add_simple))
-        subsample_file_name += "_{}-{}".format(VAL_FORMALITY, int(add_formal))
+        subsample_file_name += "_{}-{}".format(SIMPLICITY, int(add_simple))
+        subsample_file_name += "_{}-{}".format(FORMALITY, int(add_formal))
         subsample_file_ending = ".tsv"
         new_sampled_quads.to_csv(subsample_file_folder + '/' + subsample_file_name + subsample_file_ending, sep='\t',
                                  index=False)
@@ -65,7 +65,7 @@ def main(tsv_q, tsv_samples=None, sample_size=SAMPLE_SIZE, complex_acc=COMPLEX_A
 
 def sample_qs(sampleable_quads, add_formal, add_simple):
     for i, val_type in enumerate(STYLE_DIMS):
-        if val_type == VAL_SIMPLICITY:
+        if val_type == SIMPLICITY:
             cur_sample_indices = sampleable_quads[sampleable_quads[ID_COL].str.contains(SIMPLE_KEY)] \
                 .sample(int(add_simple), replace=False).index
         else:

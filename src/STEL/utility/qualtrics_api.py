@@ -7,10 +7,10 @@ import json
 import logging
 import qualtrics_constants
 import pandas as pd
-import set_for_global
+from STEL.utility import set_for_global
 
-from qualtrics_constants import EMBED_SCREENED_OUT, QID_PROLIFIC_PID, RESPONSE_TYPE_COL, VALID_RESPONSE
-from set_for_global import ALTERNATIVE11_COL, ID_COL, IN_SUBSAMPLE_COL
+from STEL.utility.qualtrics_constants import EMBED_SCREENED_OUT, QID_PROLIFIC_PID, RESPONSE_TYPE_COL, VALID_RESPONSE
+from STEL.utility.set_for_global import ALTERNATIVE11_COL, ID_COL, IN_SUBSAMPLE_COL
 # personal constants for qualtrics usage -- need to be set to work
 from z_personal_const import QUALTRICS_API_AUTH_TOKEN, QUALTRICS_API_BASE_URL, TEST_SURVEY_ID, EOSRedirectURL
 

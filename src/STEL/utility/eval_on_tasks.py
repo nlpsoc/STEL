@@ -1,67 +1,24 @@
-"""
-    Evaluate language models and methods on STEL
-"""
-import os
-import sys
-import argparse
-import logging
-import pandas as pd
-from collections.abc import Callable
-from sklearn.metrics import accuracy_score
-import numpy as np
-import random
-from typing import List
 import inspect
+import logging
+import random
+from typing import List, Callable
 
-from to_add_const import LOCAL_STEL_DIM_QUAD, LOCAL_TOTAL_DIM_QUAD
+import numpy as np
+import pandas as pd
+from sklearn.metrics import accuracy_score
 
-sys.path.append(os.path.join('.', 'utility'))
-from file_utility import read_tsv_to_pd
-
-from set_for_global import ALTERNATIVE12_COL, ALTERNATIVE11_COL, ANCHOR2_COL, ANCHOR1_COL, NBR_FOR_CORRECT_COL, \
-    ID_COL, \
-    CORRECT_ALTERNATIVE_COL, CLASS_THRESH, STYLE_TYPE_COL, QUADRUPLE, TRIPLE, \
-    ACCURACY_COL, MODEL_NAME_COL
-from style_similarity import LevenshteinSimilarity, LIWCStyleSimilarity, LIWCSimilarity, LIWCFunctionSimilarity, \
-    UncasedBertSimilarity, \
-    CharacterThreeGramSimilarity, PunctuationSimilarity, WordLengthSimilarity, UppercaseSimilarity, \
-    PosTagSimilarity, CasedBertSimilarity, MpnetSentenceBertSimilarity, ParaMpnetSentenceBertSimilarity, \
-    RobertaSimilarity, USESimilarity, BERTCasedNextSentenceSimilarity, BERTUncasedNextSentenceSimilarity
-import set_for_global
-
-cur_dir = os.path.dirname(os.path.realpath(__file__))
-LOCAL_STEL_CHAR_QUAD = [cur_dir + '/../Data/STEL/characteristics/quad_questions_char_contraction.tsv',
-                        cur_dir + '/../Data/STEL/characteristics/quad_questions_char_substitution.tsv']
-
-STYLE_OBJECTS = [LevenshteinSimilarity(),
-                 CharacterThreeGramSimilarity(),
-                 PunctuationSimilarity(),
-                 WordLengthSimilarity(),
-                 UppercaseSimilarity(),
-                 PosTagSimilarity(),
-                 # LIWCStyleSimilarity(), LIWCSimilarity(), LIWCFunctionSimilarity(),  # LIWC dict necessary
-                 USESimilarity(),
-                 BERTCasedNextSentenceSimilarity(),
-                 BERTUncasedNextSentenceSimilarity(),
-                 MpnetSentenceBertSimilarity(),
-                 ParaMpnetSentenceBertSimilarity(),
-                 CasedBertSimilarity(),
-                 RobertaSimilarity(),
-                 UncasedBertSimilarity()]
+from STEL.legacy_sim_classes import WordLengthSimilarity
+from STEL.to_add_const import LOCAL_STEL_CHAR_QUAD, LOCAL_STEL_DIM_QUAD, LOCAL_ANN_STEL_DIM_QUAD
+from STEL.utility.set_for_global import STYLE_TYPE_COL, MODEL_NAME_COL, ACCURACY_COL, ID_COL, CORRECT_ALTERNATIVE_COL, \
+    TRIPLE, QUADRUPLE, NBR_FOR_CORRECT_COL, CLASS_THRESH, ANCHOR1_COL, ANCHOR2_COL, ALTERNATIVE11_COL, \
+    ALTERNATIVE12_COL, SIMPLICITY, STYLE_DIMS, CHAR_DIMS
+from STEL.utility.file_utility import read_tsv_list_to_pd, ensure_path_exists
 
 
-# For running deepstyle make sure you have a working python environment for that model
-#   see: https://github.com/hayj/DeepStyle ...
-#   then set STYLE_OBJECTS = [DeepstyleSimilarity()]
-# from style_similarity import DeepstyleSimilarity
-# STYLE_OBJECTS = [DeepstyleSimilarity()]
-# For running LIWC make sure you have the LIWC dict file in the path specified in to_add_const
-#   STYLE_OBJECTS = [LIWCStyleSimilarity(), LIWCSimilarity(), LIWCFunctionSimilarity()]
-
-def eval_sim(stel_char_tsv: List[str] = LOCAL_STEL_CHAR_QUAD, stel_dim_tsv: List[str] = LOCAL_STEL_DIM_QUAD,
-             style_objects=STYLE_OBJECTS, output_folder='output/', eval_on_triple=False,
-             filter_majority_votes: bool = True, stel_instances: pd.DataFrame = None,
-             single_predictions_save_path = None):
+def eval_model(stel_char_tsv: List[str] = LOCAL_STEL_CHAR_QUAD, stel_dim_tsv: List[str] = LOCAL_STEL_DIM_QUAD,
+               style_objects=[WordLengthSimilarity()], output_folder='output/', eval_on_triple=False,
+               only_STEL: bool = True, stel_instances: pd.DataFrame = None,
+               single_predictions_save_path = None):
     """
         running the evaluation of (language) models/methods on the similarity-based STyle EvaLuation Framework (STEL)
     :param stel_char_tsv: list of paths to pandas dataframes in the expected format
@@ -69,27 +26,27 @@ def eval_sim(stel_char_tsv: List[str] = LOCAL_STEL_CHAR_QUAD, stel_dim_tsv: List
     :param style_objects: object which can call similarities with two lists of sentences as input
     :param output_folder: where results of evaluation should be saved to ...
     :param eval_on_triple: evaluate models on the triple instead of the quadruple setup, default is False
-    :param filter_majority_votes: if the tsv file includes questions with low agreement filter those out
+    :param only_STEL: if the tsv file includes questions with low agreement filter those out
     :param stel_instances: pandas dataframe of pre-selected task instances, default=None
         this overwrites the tsv files stel_dim_tsv and stel_char_tsv
     :return:
 
     Example:
      Call all models (except for deepstyle and LIWC) on STEL:
-        >>> eval_sim()
+        >>> eval_model()
 
      Call deepstyle extra as it has different python prerequisites (see readme)
-        >>> from style_similarity import DeepstyleSimilarity
-        >>> eval_sim(style_objects=[DeepstyleSimilarity()])
+        >>> from STEL.legacy_sim_classes import DeepstyleSimilarity
+        >>> eval_model(style_objects=[DeepstyleSimilarity()])
 
      Call for one model only
-        >>> from style_similarity import WordLengthSimilarity
-        >>> eval_sim(style_objects=[WordLengthSimilarity()])
+        >>> from STEL.legacy_sim_classes import WordLengthSimilarity
+        >>> eval_model(style_objects=[WordLengthSimilarity()])
 
      Call all models (except for deepstyle and LIWC) on the unfiltered potential task instances
           -- PROBABLY not what you want
-        >>> from to_add_const import LOCAL_ANN_STEL_DIM_QUAD
-        >>> eval_sim(stel_dim_tsv=LOCAL_ANN_STEL_DIM_QUAD,filter_majority_votes=False)
+        >>> from STEL.to_add_const import LOCAL_ANN_STEL_DIM_QUAD
+        >>> eval_model(stel_dim_tsv=LOCAL_ANN_STEL_DIM_QUAD,only_STEL=False)
 
     """
 
@@ -100,9 +57,11 @@ def eval_sim(stel_char_tsv: List[str] = LOCAL_STEL_CHAR_QUAD, stel_dim_tsv: List
     logging.info("Running STEL framework ")
 
     if stel_instances is None:
-        stel_instances, stel_types = read_in_stel_instances(stel_dim_tsv, stel_char_tsv, filter_majority_votes)
+        stel_instances, stel_types = read_in_stel_instances(stel_dim_tsv, stel_char_tsv, only_STEL)
     else:
-        stel_types = stel_instances[STYLE_TYPE_COL].unique()
+        org_stel_types = STYLE_DIMS + CHAR_DIMS
+        stel_types = org_stel_types + [stel_type for stel_type in stel_instances[STYLE_TYPE_COL].unique()
+                                       if stel_type not in org_stel_types]
 
     # Creating the style similarity functions to evaluate on ...
     # sim_function_names, sim_object = get_simiarlity_functions(deepstyle)
@@ -129,14 +88,14 @@ def eval_sim(stel_char_tsv: List[str] = LOCAL_STEL_CHAR_QUAD, stel_dim_tsv: List
                                                                         stel_types, f_name)
 
         prediction_df[f_name] = prediction_per_instance
-        accuracy_results_df = accuracy_results_df.append(cur_result_dict, ignore_index=True)
+        accuracy_results_df = pd.concat([accuracy_results_df, pd.DataFrame([cur_result_dict])], ignore_index=True)
 
     # LOG & SAVE results ...
     with pd.option_context('display.max_rows', None, 'display.max_columns',
                            None):  # more options can be specified also
         print(accuracy_results_df)
 
-    if not filter_majority_votes:
+    if not only_STEL:
         eval_name = 'UNFILTERED'
     else:
         eval_name = 'STEL'
@@ -177,14 +136,6 @@ def eval_sim(stel_char_tsv: List[str] = LOCAL_STEL_CHAR_QUAD, stel_dim_tsv: List
     }
 
 
-def ensure_path_exists(save_path):
-    # https://stackoverflow.com/questions/273192/how-can-i-safely-create-a-nested-directory-in-python
-    dir_name = os.path.dirname(save_path)
-    from pathlib import Path
-    Path(dir_name).mkdir(parents=True,
-                         exist_ok=True)
-
-
 def read_in_stel_instances(stel_dim_tsv: List[str], stel_char_tsv: List[str], filter_majority_votes: bool):
     """
         read in task instances to evalaute from list of paths to tsv files
@@ -202,6 +153,7 @@ def read_in_stel_instances(stel_dim_tsv: List[str], stel_char_tsv: List[str], fi
             dim_instances_df = dim_instances_df[dim_instances_df[NBR_FOR_CORRECT_COL] >= CLASS_THRESH]
         # style_dim_types = STYLE_DIMS
         stel_dim_types = list(dim_instances_df[STYLE_TYPE_COL].unique())
+        stel_dim_types.reverse()
         logging.info("      on dimensions {} using files {}...".format(stel_dim_types, stel_dim_tsv))
     # read in character dimension task instances to dataframe
     if stel_char_tsv:
@@ -211,7 +163,7 @@ def read_in_stel_instances(stel_dim_tsv: List[str], stel_char_tsv: List[str], fi
 
     if stel_dim_tsv and stel_char_tsv:
         stel_instances = pd.concat([dim_instances_df, char_instances_df], ignore_index=True)
-        stel_types = list(stel_instances[STYLE_TYPE_COL].unique())
+        stel_types = stel_dim_types + stel_char_types  # list(stel_instances[STYLE_TYPE_COL].unique())
         logging.info('Evaluating on {} style dim and {} style char tasks ... '
                      .format(len(dim_instances_df), len(char_instances_df)))
     elif stel_dim_tsv:
@@ -392,44 +344,3 @@ def predict_alternatives(sims, triple):
                 nbr_random += 1
                 is_random.append(True)
     return is_random, nbr_random, predictions
-
-
-def read_tsv_list_to_pd(csv_file_list: List[str]):
-    """
-    :param csv_file_list: list of file paths to csv files separated with tabs
-    :return: dataframe of concatenated dataframe, beginning with the first element in the string list
-    """
-    csv_df = read_tsv_to_pd(csv_file_list[0])  # , index_col=0
-    for file_tsv in csv_file_list[1:]:
-        cur_df = read_tsv_to_pd(file_tsv)
-        csv_df = pd.concat([csv_df, cur_df])
-    return csv_df
-
-
-if __name__ == "__main__":
-    set_for_global.set_logging()
-    parser = argparse.ArgumentParser(
-        description='Evaluating Style models on STLE ... ')
-    parser.add_argument('-run_local', '--local_test',
-                        default=False,
-                        help="whether this is only a local test run")
-    parser.add_argument('-d', '--run_deepstyle',
-                        default=False,
-                        help='whether to test only on the deepstyle model. '
-                             'ATTENTION: this needs a special python environment.'
-                             ' See https://github.com/hayj/DeepStyle')
-    parser.add_argument('-f', '--filter_votes',
-                        default=True,
-                        help='whether to test only majority voted (i.e., STEL) questions.')
-
-    args = parser.parse_args()
-    filter_votes = args.filter_votes
-    # filter_votes = False --> TODO: check this works
-    if not filter_votes:
-        quadruple_tsv = LOCAL_TOTAL_DIM_QUAD
-        logging.info('Calculating on total quad questions ... ')
-    else:
-        quadruple_tsv = LOCAL_STEL_DIM_QUAD
-        logging.info('Calculating on STLE ....')
-
-    eval_sim(stel_char_tsv=LOCAL_STEL_CHAR_QUAD, stel_dim_tsv=quadruple_tsv, filter_majority_votes=filter_votes)

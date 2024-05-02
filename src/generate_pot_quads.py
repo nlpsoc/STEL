@@ -13,20 +13,18 @@
 import logging
 import sys
 import os
-import pickle
 import argparse
 import random
 
-from set_for_global import ALTERNATIVE12_COL, ALTERNATIVE11_COL, ANCHOR2_COL, ANCHOR1_COL, NBR_FOR_CORRECT_COL, ID_COL, \
-    CORRECT_ALTERNATIVE_COL, IN_SUBSAMPLE_COL, STYLE_TYPE_COL, VAL_SIMPLICITY, VAL_FORMALITY, STYLE_DIMS, FORMAL_KEY, \
+from STEL.utility.set_for_global import ALTERNATIVE12_COL, ALTERNATIVE11_COL, ANCHOR2_COL, ANCHOR1_COL, NBR_FOR_CORRECT_COL, ID_COL, \
+    CORRECT_ALTERNATIVE_COL, IN_SUBSAMPLE_COL, STYLE_TYPE_COL, SIMPLICITY, FORMALITY, STYLE_DIMS, FORMAL_KEY, \
     SIMPLE_KEY, NBR_SUBSTITUTION, CONTRACTION, SUBSAMPLE_SIZE
 
 STEL_CHAR_KEYWORDS = [CONTRACTION, NBR_SUBSTITUTION]  # [NBR_SUBSTITUTION, CONTRACTION]
 SIMPLE_TURKER_VERSION = True
 
-sys.path.append(os.path.join('.', 'utility'))
-import quadruple_generators
-from qualtrics_constants import quadruple_id
+from STEL.utility import quadruple_generators
+from STEL.utility.qualtrics_constants import quadruple_id
 
 FILE_PATH = ""
 TOTAL = 30000
@@ -49,7 +47,7 @@ def main(action="generate", style_char=None, quad_tsv_file=None):
         # Generate the characteristics quadruple sets (i.e., contraction and number substitution)
         #   and save to tsv
 
-        import set_for_global
+        from STEL.utility import set_for_global
         set_for_global.set_global_seed(w_torch=False)
         import pandas as pd
         # ONLY save QUADRUPLES as triples can be generated from them as well
@@ -102,7 +100,7 @@ def main(action="generate", style_char=None, quad_tsv_file=None):
     elif action == "generate-quads":
         # Generate the potential style dimension quadruple sets and save to tsv
 
-        import set_for_global
+        from STEL.utility import set_for_global
         set_for_global.set_global_seed(w_torch=False)
         import pandas as pd
         # ONLY save QUADRUPLES as triples can be generated from them as well
@@ -114,10 +112,10 @@ def main(action="generate", style_char=None, quad_tsv_file=None):
         logging.info("Generating quadruples for tsv ... ")
 
         for val_type in STYLE_DIMS:
-            if val_type == VAL_SIMPLICITY:
+            if val_type == SIMPLICITY:
                 triplet_generator = quadruple_generators.SimpleQuadrupleGenerator(quad=True)  # shuffle_iter=True,
                 nbr_simple = 0
-            elif val_type == VAL_FORMALITY:
+            elif val_type == FORMALITY:
                 triplet_generator = quadruple_generators.FormalQuadrupleGenerator(quad=True)
                 nbr_formal = 0
             else:
@@ -142,12 +140,12 @@ def main(action="generate", style_char=None, quad_tsv_file=None):
                      ALTERNATIVE12_COL: alternatives[1].text, CORRECT_ALTERNATIVE_COL: correct_alternative + 1,
                      ID_COL: quad_id, IN_SUBSAMPLE_COL: False},
                     ignore_index=True)
-                if val_type == VAL_SIMPLICITY:
+                if val_type == SIMPLICITY:
                     nbr_simple += 1
-                elif val_type == VAL_FORMALITY:
+                elif val_type == FORMALITY:
                     nbr_formal += 1
 
-            if val_type == VAL_SIMPLICITY:
+            if val_type == SIMPLICITY:
                 quad_df.loc[
                     quad_df[quad_df[ID_COL].str.contains(SIMPLE_KEY)].sample(int(SUBSAMPLE_SIZE / 2),
                                                                              replace=False).index,
@@ -159,8 +157,8 @@ def main(action="generate", style_char=None, quad_tsv_file=None):
                     IN_SUBSAMPLE_COL] = True
 
         bench_file_name = "quad_questions"
-        bench_file_name += "_{}-{}".format(VAL_SIMPLICITY, nbr_simple)
-        bench_file_name += "_{}-{}".format(VAL_FORMALITY, nbr_formal)
+        bench_file_name += "_{}-{}".format(SIMPLICITY, nbr_simple)
+        bench_file_name += "_{}-{}".format(FORMALITY, nbr_formal)
         quad_file_ending = ".tsv"
 
         quad_df.to_csv(bench_file_name + quad_file_ending, sep='\t')
@@ -169,7 +167,7 @@ def main(action="generate", style_char=None, quad_tsv_file=None):
 
     elif action == "quads-subsample":
         # get a subsample
-        import set_for_global
+        from STEL.utility import set_for_global
         set_for_global.set_global_seed(w_torch=False)
 
         import pandas as pd
@@ -182,7 +180,7 @@ def main(action="generate", style_char=None, quad_tsv_file=None):
                      .format(int(subsample_size / 2), STYLE_DIMS))
 
         for i, val_type in enumerate(STYLE_DIMS):
-            if val_type == VAL_SIMPLICITY:
+            if val_type == SIMPLICITY:
                 cur_sample_indices = quad_df[
                     (quad_df[ID_COL].str.contains(SIMPLE_KEY)) & (quad_df[IN_SUBSAMPLE_COL] == False)] \
                     .sample(int(subsample_size / 2), replace=False).index
@@ -200,8 +198,8 @@ def main(action="generate", style_char=None, quad_tsv_file=None):
 
         subsample_file_folder = os.path.dirname(quad_tsv_file)
         subsample_file_name = "subsample_quad_questions"
-        subsample_file_name += "_{}-{}".format(VAL_SIMPLICITY, int(subsample_size / 2))
-        subsample_file_name += "_{}-{}".format(VAL_FORMALITY, int(subsample_size / 2))
+        subsample_file_name += "_{}-{}".format(SIMPLICITY, int(subsample_size / 2))
+        subsample_file_name += "_{}-{}".format(FORMALITY, int(subsample_size / 2))
         subsample_file_ending = ".tsv"
 
         quad_df.to_csv(subsample_file_folder + '/' + subsample_file_name + subsample_file_ending, sep='\t')

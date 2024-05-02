@@ -1,9 +1,8 @@
-import file_utility
 import bz2
 import json
 
-from const_generators import REDDIT_SKIP_COMMENTS
-from to_add_const import ABSTRACT_WIKI
+from STEL.utility.const_generators import REDDIT_SKIP_COMMENTS
+from STEL.to_add_const import ABSTRACT_WIKI
 
 
 class PushshiftUtteranceGenerator:

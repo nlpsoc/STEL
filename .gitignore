@@ -9,6 +9,7 @@ tex/
 output/
 # ADD to .gitignore for public release:
 Datasets/
-# ignore all files starting with _
-_*
 example_eval_style_models.py
+_LIWC*
+_quad_stel-dimensions_formal-815_complex-815.tsv
+_QUAD-full_annotations.tsv

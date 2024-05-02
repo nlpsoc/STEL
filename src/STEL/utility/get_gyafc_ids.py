@@ -1,10 +1,7 @@
-import sys, os
-
-sys.path.append(os.path.join('..'))
-from to_add_const import LOCAL_TOTAL_DIM_QUAD, LOCAL_STEL_DIM_QUAD
+from STEL.to_add_const import LOCAL_STEL_DIM_QUAD
 import pandas as pd
-from set_for_global import STYLE_TYPE_COL, VAL_FORMALITY, ID_COL, ALTERNATIVE12_COL, ALTERNATIVE11_COL, ANCHOR2_COL, \
-    ANCHOR1_COL, VAL_SIMPLICITY
+from STEL.utility.set_for_global import STYLE_TYPE_COL, FORMALITY, ID_COL, ALTERNATIVE12_COL, ALTERNATIVE11_COL, ANCHOR2_COL, \
+    ANCHOR1_COL
 
 
 def update_i_f_dicts(sent_id_str, cur_row, firsts_col, seconds_col, f_dict, i_dict):
@@ -51,8 +48,8 @@ def save_gyafc_ids():
         f.writelines([str(cur_id) + "\n" for cur_id in list_sent_ids])
 
 
-def sample_dim(stel_instances, sampling_dim=VAL_FORMALITY, n=100):
-    from set_for_global import set_global_seed
+def sample_dim(stel_instances, sampling_dim=FORMALITY, n=100):
+    from STEL.utility.set_for_global import set_global_seed
     set_global_seed()
     df_sample = stel_instances[stel_instances[STYLE_TYPE_COL] == sampling_dim].sample(n=n)
     index_dropped = df_sample.drop('Unnamed: 0', axis=1)

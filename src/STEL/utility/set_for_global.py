@@ -5,7 +5,6 @@ import logging
 import os
 import random
 import sys
-
 import numpy
 
 SEED = 1404
@@ -72,17 +71,18 @@ IN_SUBSAMPLE_COL = 'In Subsample'
 NBR_ANNOTATORS = 5
 CLASS_THRESH = 3
 STYLE_TYPE_COL = 'style type'
-VAL_SIMPLICITY = "simplicity"
-VAL_FORMALITY = "formality"
-STYLE_DIMS = [VAL_SIMPLICITY, VAL_FORMALITY]
+SIMPLICITY = "simplicity"
+FORMALITY = "formality"
+STYLE_DIMS = [FORMALITY, SIMPLICITY]
+NBR_SUBSTITUTION = 'nbr_substitution'
+CONTRACTION = 'contraction'
+CHAR_DIMS = [CONTRACTION, NBR_SUBSTITUTION]
 FORMAL_KEY = 'f-'
 SIMPLE_KEY = 'c-'
 QUADRUPLE = 'quadruple'
 TRIPLE = 'triple'
 ACCURACY_COL = 'Accuracy'
 MODEL_NAME_COL = 'Model Name'
-NBR_SUBSTITUTION = 'nbr_substitution'
-CONTRACTION = 'contraction'
 SUBSAMPLE_SIZE = 300
 VAL_POLITENESS = "politeness"
 VAL_CONTRACTION = "contraction"

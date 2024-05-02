@@ -5,12 +5,13 @@ import pandas as pd
 import logging
 
 # Pandas column names
-from set_for_global import ALTERNATIVE12_COL, ALTERNATIVE11_COL, ANCHOR2_COL, ANCHOR1_COL, NBR_FOR_CORRECT_COL, ID_COL, \
+from STEL.utility.set_for_global import ALTERNATIVE12_COL, ALTERNATIVE11_COL, ANCHOR2_COL, ANCHOR1_COL, NBR_FOR_CORRECT_COL, ID_COL, \
     CORRECT_ALTERNATIVE_COL, NBR_ANNOTATORS, CLASS_THRESH, \
-    STYLE_TYPE_COL, VAL_SIMPLICITY, VAL_FORMALITY, FORMAL_KEY, SIMPLE_KEY
-from qualtrics_constants import QID_PROLIFIC_PID, RESPONSE_TYPE_COL, VALID_RESPONSE
+    STYLE_TYPE_COL, SIMPLICITY, FORMALITY, FORMAL_KEY, SIMPLE_KEY
+from STEL.utility.qualtrics_constants import QID_PROLIFIC_PID, RESPONSE_TYPE_COL, VALID_RESPONSE
 
-import set_for_global
+from STEL.utility import set_for_global
+
 set_for_global.set_logging()
 
 COL_CORRECT_CLASS = 'correct_classification'
@@ -149,7 +150,7 @@ def evaluate_responses(tsv_all_qs='../survey/Small-Pilot-Triple_March+11,+2021_0
         # SAVE results to tsv file
         save_filename = '../test/output/{}_annotation-results.tsv'.format(q_type)
         logging.info('Saving results to {}'.format(save_filename))
-        save_df[STYLE_TYPE_COL] = [VAL_FORMALITY if FORMAL_KEY in row[ID_COL] else VAL_SIMPLICITY
+        save_df[STYLE_TYPE_COL] = [FORMALITY if FORMAL_KEY in row[ID_COL] else SIMPLICITY
                                    for _, row in save_df.iterrows()]
         save_df.to_csv(save_filename, sep='\t')
 
@@ -157,9 +158,9 @@ def evaluate_responses(tsv_all_qs='../survey/Small-Pilot-Triple_March+11,+2021_0
             logging.info('sampling same size for STLE ...')
             save_stle = pd.DataFrame(columns=[ANCHOR1_COL, ANCHOR2_COL, ALTERNATIVE11_COL, ALTERNATIVE12_COL,
                                               CORRECT_ALTERNATIVE_COL, ID_COL, NBR_FOR_CORRECT_COL, STYLE_TYPE_COL])
-            simple_df = save_df[(save_df[STYLE_TYPE_COL] == VAL_SIMPLICITY) &
+            simple_df = save_df[(save_df[STYLE_TYPE_COL] == SIMPLICITY) &
                                 (save_df[NBR_FOR_CORRECT_COL] >= CLASS_THRESH)]
-            formal_df = save_df[(save_df[STYLE_TYPE_COL] == VAL_FORMALITY) &
+            formal_df = save_df[(save_df[STYLE_TYPE_COL] == FORMALITY) &
                                 (save_df[NBR_FOR_CORRECT_COL] >= CLASS_THRESH)]
             if len(simple_df) < len(formal_df):
                 save_stle = pd.concat([save_stle, simple_df], ignore_index=True)

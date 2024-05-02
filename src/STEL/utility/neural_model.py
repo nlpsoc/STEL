@@ -1,14 +1,11 @@
 import torch
-import sys
-import os
 import numpy as np
 from abc import ABC
 from transformers import BertTokenizer
 import transformers
 from typing import List
 
-sys.path.append(os.path.join('..', 'stel'))
-from set_for_global import set_global_seed, set_torch_device, set_logging, EVAL_BATCH_SIZE
+from STEL.utility.set_for_global import set_global_seed, set_torch_device, set_logging, EVAL_BATCH_SIZE
 
 BERT_MAX_WORDS = 250
 

@@ -1,9 +1,7 @@
 import logging
 
-from wordfreq import word_frequency
-
-import base_generators
-from to_add_const import PUSHSHIFT_MONTH
+from STEL.utility import base_generators
+from STEL.to_add_const import PUSHSHIFT_MONTH
 
 NUMBER_SUB_DICT = {  # from https://www.gamehouse.com/blog/leet-speak-cheat-sheet/
     # and https://simple.wikipedia.org/wiki/Leet and https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3358692/pdf/fpsyg-03-00150.pdf

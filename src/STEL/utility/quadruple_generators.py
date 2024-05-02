@@ -7,14 +7,13 @@ from abc import ABC
 
 import nltk
 import pandas as pd
-# import leetspeak
 
 # Generator for the Turker simplification dataset
-from base_generators import WikiAbstractStream
-from const_generators import SIMPLE_TURKER_IDS, \
+from STEL.utility.base_generators import WikiAbstractStream
+from STEL.utility.const_generators import SIMPLE_TURKER_IDS, \
     CONTRACTION_DICT, \
     NSUBS_PATH, NSUBS_TRANSLATED
-from to_add_const import SIMPLE_TEST_TRUE_CASE_PATH, SIMPLE_TUNE_TRUE_CASE_PATH, GYAFC_PATH, TUNE_GYAFC_PATH
+from STEL.to_add_const import SIMPLE_TEST_TRUE_CASE_PATH, SIMPLE_TUNE_TRUE_CASE_PATH, GYAFC_PATH, TUNE_GYAFC_PATH
 
 NBR_CHARS = 100
 
