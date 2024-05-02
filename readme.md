@@ -63,7 +63,7 @@ In case you receive "Running STEL on small demo data.",
 something went wrong with the GYAFC data. 
 Make sure to gain permission from Yahoo, 
 e-mail me to get acces to the file (a.m.wegmann@uu.nl) and 
-put it in the correct folder as specified in ```Data/STEL/dimensions/_quad_stel-dimensions_formal-815_complex-815.tsv```.
+put it in the correct folder: ```Data/STEL/dimensions/_quad_stel-dimensions_formal-815_complex-815.tsv```.
 
 Expected printed output for the demo:
 ```
