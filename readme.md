@@ -5,106 +5,84 @@ Thank you for your interest in STEL! This is the code going with the EMNLP 2021 
 
 # Quickstart
 
-You can find the raw data for STEL in Data/STEL. You will need to get permission to use the formality data from Yahoo ([L6 - Yahoo! Answers ComprehensiveQuestions and Answers version 1.0 (multi part)](https://webscope.sandbox.yahoo.com/catalog.php?datatype=l)) as this is also the prerequisite for receiving the [GYAFC dataset](https://github.com/raosudha89/GYAFC-corpus). Please e-mail me (a.m.wegmann@uu.nl) with the permission to receive the full data necessary to run STEL. You will need to add the files to the repository as specified in ```to_add_const.py```.
+You can find the raw data for STEL in Data/STEL. You will need to get permission to use the formality data from Yahoo ([L6 - Yahoo! Answers ComprehensiveQuestions and Answers version 1.0 (multi part)](https://webscope.sandbox.yahoo.com/catalog.php?datatype=l)) as this is also the prerequisite for receiving the [GYAFC dataset](https://github.com/raosudha89/GYAFC-corpus). Please e-mail me (a.m.wegmann@uu.nl) with the permission to receive the full data necessary to run STEL. You will need to add the files to the repository as specified in ```to_add_const.py```. 
+You will need to set LOCAL_STEL_DIM_QUAD to `/Data/STEL/dimensions/_quad_stel-dimensions_formal-815_complex-815.tsv'` 
+after getting permission to use the formality data from Yahoo. 
 
-To use it, in the project folder src, call
 
-```python
-import STEL.utility.eval_on_tasks
-import eval_on_STEL
-
-STEL.STEL.eval_model()
-```
-
-This will call all implemented style similarity models on the current version of STEL (except for deepstyle and LIWC based models).  Can take a long time. Might run into RAM problems (depending on your machine).
-
-To only call a specific method on style:
+To use it, on a specific mdethod, call
 
 ```python
-import STEL.legacy_sim_classes
-import STEL.utility.eval_on_tasks
-import eval_on_STEL
-import style_similarity
+import STEL
 
-STEL.STEL.eval_model(style_objects=[STEL.legacy_sim_classes.WordLengthSimilarity()])
+STEL.STEL.eval_on_STEL(style_objects=[STEL.similarity.WordLengthSimilarity()])
 ```
 
-Do not forget the instantiation via '()'. See some further example calls in `example_eval_style_models.py`. You will need to set LOCAL_STEL_DIM_QUAD to `/Data/STEL/dimensions/_quad_stel-dimensions_formal-815_complex-815.tsv'`.
+To use your own method override the similarity class and call it in the same way. Example for a sentence BERT similarity:
 
-Expected output:
+```python
+from STEL.similarity import Similarity, cosine_sim
+from sentence_transformers import SentenceTransformer
+import torch
+from STEL import STEL
+
+class SBERTSimilarity(Similarity):
+    def __init__(self, model_name: str):
+        super().__init__()
+        self.model = SentenceTransformer("AnnaWegmann/Style-Embedding")
+        self.model.to("cuda" if torch.cuda.is_available() else "cpu")
+
+    def similarities(self, sentences_1, sentences_2):
+        with torch.no_grad():
+            sentence_emb_1 = self.model.encode(sentences_1, show_progress_bar=False)
+            sentence_emb_2 = self.model.encode(sentences_2, show_progress_bar=False)
+        return [cosine_sim(sentence_emb_1[i], sentence_emb_2[i]) for i in range(len(sentences_1))]
+
+STEL.eval_on_STEL(style_objects=[SBERTSimilarity("AnnaWegmann/Style-Embedding")])
+```
+
+
+Expected (printed) output:
 
 ```
-INFO : Running STEL framework 
-INFO : Filtering out tasks with low agreement ... 
-INFO :       on dimensions ['simplicity', 'formality'] using files ['/home/anna/Documents/UU/STEL/src/../Data/STEL/dimensions/_quad_stel-dimensions_formal-815_complex-815.tsv']...
-INFO :       on characteristics ['contraction', 'nbr_substitution'] using file ['/home/anna/Documents/UU/STEL/src/../Data/STEL/characteristics/quad_questions_char_contraction.tsv', '/home/anna/Documents/UU/STEL/src/../Data/STEL/characteristics/quad_questions_char_substitution.tsv']
-INFO : Evaluating on 1630 style dim and 200 style char tasks ... 
-INFO : Evaluation for method WordLengthSimilarity
-INFO : random assignments: 156
-INFO :   Accuracy at 0.5792349726775956, without random 0.5866188769414575 with 156 questions
-INFO :   Accuracy simplicity at 0.5907975460122699 for 815 task instances, without random 0.5943877551020408 with 784 left questions
-INFO :   Accuracy formality at 0.5300613496932515 for 815 task instances, without random 0.5313700384122919 with 781 left questions
-INFO :   Accuracy contraction at 0.94 for 100 task instances, without random 0.94 with 100 left questions
-INFO :   Accuracy nbr_substitution at 0.5 for 100 task instances, without random 0.7777777777777778 with 9 left questions
-             Model Name  Accuracy  Accuracy simplicity  Accuracy formality  \
-0  WordLengthSimilarity  0.579235             0.590798            0.530061   
-
+Performance on original STEL tasks
+        Model Name  Accuracy  Accuracy formality  Accuracy simplicity  \
+0  SBERTSimilarity  0.710929            0.828221             0.581595   
+   Accuracy nbr_substitution  Accuracy contraction  
+0                       0.56                  0.96  
+Performance on STEL-Or-Content tasks
+        Model Name  Accuracy  Accuracy formality  Accuracy simplicity  \
+0  SBERTSimilarity  0.431694            0.696933             0.266258   
    Accuracy contraction  Accuracy nbr_substitution  
-0                  0.94                        0.5  
-INFO : Saved results to output/STEL-quadruple_WordLengthSimilarity.tsv
-INFO : Saved single predictions to output/STEL_single-pred-quadruple_WordLengthSimilarity.tsv
+0                  0.02                       0.03  
 ```
 
-When running on the provided sample of STEL only, the output will look different (see below). Keep in mind that this does not include the full variability of STEL though. It is using a sample, i.e., `/Data/STEL/dimensions/quad_stel-dimension_simple-100_sample.tsv` and `Data/STEL/dimensions/quad_stel-dimension_formal-100_sample.tsv`.
+In case you receive "Running STEL on small demo data.", 
+something went wrong with the GYAFC data. 
+Make sure to gain permission from Yahoo, 
+e-mail me to get acces to the file (a.m.wegmann@uu.nl) and 
+put it in the correct folder as specified in ```Data/STEL/dimensions/_quad_stel-dimensions_formal-815_complex-815.tsv```.
 
+Expected printed output for the demo:
 ```
-INFO : Running STEL framework 
-INFO : Filtering out tasks with low agreement ... 
-INFO :       on dimensions ['simplicity', 'formality'] using files ['/home/anna/Documents/UU/STEL/src/../Data/STEL/dimensions/quad_stel-dimension_simple-100_sample.tsv', '/home/anna/Documents/UU/STEL/src/../Data/STEL/dimensions/quad_stel-dimension_formal-100_sample.tsv']...
-INFO :       on characteristics ['contraction', 'nbr_substitution'] using file ['/home/anna/Documents/UU/STEL/src/../Data/STEL/characteristics/quad_questions_char_contraction.tsv', '/home/anna/Documents/UU/STEL/src/../Data/STEL/characteristics/quad_questions_char_substitution.tsv']
-INFO : Evaluating on 200 style dim and 200 style char tasks ... 
-INFO : Evaluation for method WordLengthSimilarity
-INFO : random assignments: 100
-INFO :   Accuracy at 0.6425, without random 0.69 with 100 questions
-INFO :   Accuracy simplicity at 0.62 for 100 task instances, without random 0.625 with 96 left questions
-INFO :   Accuracy formality at 0.485 for 100 task instances, without random 0.4842105263157895 with 95 left questions
-INFO :   Accuracy contraction at 0.94 for 100 task instances, without random 0.94 with 100 left questions
-INFO :   Accuracy nbr_substitution at 0.5 for 100 task instances, without random 0.7777777777777778 with 9 left questions
-INFO : Saved results to output/STEL-quadruple_WordLengthSimilarity.tsv
-INFO : Saved single predictions to output/STEL_single-pred-quadruple_WordLengthSimilarity.tsv
-             Model Name  Accuracy  Accuracy simplicity  Accuracy formality  \
-0  WordLengthSimilarity    0.6425                 0.62               0.485   
-
+Running STEL on small demo data. Please gain permission to use the GYAFC corpus and add the data to location Data/STEL/dimensions/_quad_stel-dimensions_formal-815_complex-815.tsv
+Performance on original STEL tasks
+        Model Name  Accuracy  Accuracy formality  Accuracy simplicity  \
+0  SBERTSimilarity    0.7375                0.84                 0.59   
+   Accuracy nbr_substitution  Accuracy contraction  
+0                       0.56                  0.96  
+Performance on STEL-Or-Content tasks
+        Model Name  Accuracy  Accuracy formality  Accuracy simplicity  \
+0  SBERTSimilarity      0.25                0.69                 0.26   
    Accuracy contraction  Accuracy nbr_substitution  
-0                  0.94                        0.5  
+0                  0.02                       0.03  
 ```
 
-
-
+### Legacy (Maybe don't use)
 Possible models to call upon (compare to the paper):
 
 ```
 UncasedBertSimilarity(), LevenshteinSimilarity(), CharacterThreeGramSimilarity(), PunctuationSimilarity(), WordLengthSimilarity(), UppercaseSimilarity(), PosTagSimilarity(), CasedBertSimilarity(), UncasedSentenceBertSimilarity(), RobertaSimilarity(), USESimilarity(), BERTCasedNextSentenceSimilarity(), BERTUncasedNextSentenceSimilarity(), DeepstyleSimilarity(), LevenshteinSimilarity(), LIWCStyleSimilarity(), LIWCSimilarity() 
-```
-
-To add your own model, implement the abstract similarity class. Either implement the ```similarity(self, sentence_1: str, sentence_2: str) -> float``` or override the ```similarities(self, sentences_1: List[str], sentences_2: List[str]) -> List[float]``` function for a more efficient implementation. Only similarities will be called. 
-```python
-from style_similarity import Similarity 
-
-class MySimilarity(Similarity):
-    def similarity(self, sentence_1: str, sentence_2: str) -> float:
-        if len(sentence_1) == 0 and len(sentence_2) == 0:
-            return self.SAME  # same style is at 1
-        else:
-            return self.DISTINCT # distinct style is at 0
-```
-
-To call this new method on STEL:
-
-```python
-import STEL.utility.eval_on_tasks
-
-STEL.STEL.eval_model(style_objects=[MySimilarity()])
 ```
 
 # Structure

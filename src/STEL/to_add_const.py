@@ -13,13 +13,19 @@ src_dir = get_dir_to_src()
 #   filtered STEL data
 #       Dimensions
 LOCAL_STEL_DIM_QUAD = [src_dir + '/../Data/STEL/dimensions/_quad_stel-dimensions_formal-815_complex-815.tsv']
+# test if exists
+if not os.path.exists(LOCAL_STEL_DIM_QUAD[0]):
+    print("Running STEL on small demo data. "
+          "Please gain permission to use the GYAFC corpus and "
+          "add the data to location Data/STEL/dimensions/_quad_stel-dimensions_formal-815_complex-815.tsv")
+    #   UNTIL YOU HAVE PERMISSION USE SMALLER DEMO ...
+    LOCAL_STEL_DIM_QUAD = [src_dir + '/../Data/STEL/dimensions/quad_stel-dimension_simple-100_sample.tsv',
+                           src_dir + '/../Data/STEL/dimensions/quad_stel-dimension_formal-100_sample.tsv']
 #       Characteristics
 LOCAL_STEL_CHAR_QUAD = [get_dir_to_src() + '/../Data/STEL/characteristics/quad_questions_char_substitution.tsv',
                         get_dir_to_src() + '/../Data/STEL/characteristics/quad_questions_char_contraction.tsv'
                         ]
-#   UNTIL YOU HAVE PERMISSION TRY ON SMALLER DEMO ...
-# LOCAL_STEL_DIM_QUAD = [cur_dir + '/../Data/STEL/dimensions/quad_stel-dimension_simple-100_sample.tsv',
-#                        cur_dir + '/../Data/STEL/dimensions/quad_stel-dimension_formal-100_sample.tsv']
+
 #   PROBABLY NOT WHAT YOU NEED: full STEL data with annotations (on the unfiltered potential task instances)
 LOCAL_ANN_STEL_DIM_QUAD = [src_dir + '/../Data/Experiment-Results/annotations/_QUAD-full_annotations.tsv']
 
