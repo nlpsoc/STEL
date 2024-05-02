@@ -1,3 +1,5 @@
+**UPDATE:** Added another characteristic task: emotives vs. emojis. Thanks to the amazing work done a while ago by David Bikker (😊 vs . :)).
+
 **NOTE:** With the current code, changing the batch size of RoBERTa changes its performance. To get the highest possible performance, use an eval batch size of 1. This is probably connected to the tokenization call and the used padding in the batch. To make sure you are not affected by this set eval batch size to 1 (performance of ~0.80 for RoBERTa instead of ~0.61), or even cleaner, 
 use the sentence-bert implementation for encoding sentences, as described below 
 (just change `"AnnaWegmann/Style-Embedding"` to `roberta-base`)
