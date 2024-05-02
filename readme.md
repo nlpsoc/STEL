@@ -51,14 +51,16 @@ Expected (printed) output:
 ```
 Performance on original STEL tasks
         Model Name  Accuracy  Accuracy formality  Accuracy simplicity  \
-0  SBERTSimilarity  0.710929            0.828221             0.581595   
-   Accuracy nbr_substitution  Accuracy contraction  
-0                       0.56                  0.96  
+0  SBERTSimilarity   0.73399            0.828221             0.581595   
+
+   Accuracy nbr_substitution  Accuracy contraction  Accuracy emotives  
+0                       0.56                  0.96              0.945  
 Performance on STEL-Or-Content tasks
         Model Name  Accuracy  Accuracy formality  Accuracy simplicity  \
-0  SBERTSimilarity  0.431694            0.696933             0.266258   
-   Accuracy contraction  Accuracy nbr_substitution  
-0                  0.02                       0.03  
+0  SBERTSimilarity  0.396059            0.696933             0.266258   
+
+   Accuracy contraction  Accuracy nbr_substitution  Accuracy emotives  
+0                  0.02                       0.03               0.07  
 ```
 
 In case you receive "Running STEL on small demo data.", 
