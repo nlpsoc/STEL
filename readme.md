@@ -12,7 +12,7 @@ You will need to set LOCAL_STEL_DIM_QUAD to `/Data/STEL/dimensions/_quad_stel-di
 after getting permission to use the formality data from Yahoo. 
 
 
-To use it, on a specific mdethod, call
+To use it, on a specific method, call
 
 ```python
 import STEL
