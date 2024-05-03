@@ -19,7 +19,7 @@ To use it, on a specific method, call
 ```python
 import STEL
 
-STEL.STEL.eval_on_STEL(style_objects=[STEL.similarity.WordLengthSimilarity()])
+STEL.STEL.eval_on_STEL(style_objects=[STEL.similarity.LevenshteinSimilarity()])
 ```
 
 To use your own method override the similarity class and call it in the same way. Example for a sentence BERT similarity:
