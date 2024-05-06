@@ -25,6 +25,7 @@ if not os.path.exists(LOCAL_STEL_DIM_QUAD[0]):
 LOCAL_STEL_CHAR_QUAD = [get_dir_to_src() + '/../Data/STEL/characteristics/quad_questions_char_substitution.tsv',
                         get_dir_to_src() + '/../Data/STEL/characteristics/quad_questions_char_contraction.tsv',
                         get_dir_to_src() + '/../Data/STEL/characteristics/quad_questions_char_emotives.tsv',
+                        get_dir_to_src() + '/../Data/STEL/characteristics/quad_questions_em-subj-pronoun_100.tsv',
                         ]
 
 #   PROBABLY NOT WHAT YOU NEED: full STEL data with annotations (on the unfiltered potential task instances)
