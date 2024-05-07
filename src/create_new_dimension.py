@@ -90,14 +90,14 @@ def create_quadruples(style_1_sentences, style_2_sentences, dim_name, style_key1
 
 def main():
     # load sentences
-    file1_path = "../Data/STEL/raws/em_subj_pronoun_transformed-wiki_200.txt"
+    file1_path = "../Data/STEL/raws/definite_abstract_transformed-wiki_200.txt"
     # extract filename from path
     file1 = os.path.basename(file1_path)
     # extract everything before form-wiki
     dim_name = file1.split("_transformed-wiki")[0].replace("_", "-")
     with open(file1_path, "r") as f:
         style_1_sentences = f.readlines()
-    with open("../Data/STEL/raws/em_subj_pronoun_org-wiki_200.txt", "r") as f:
+    with open("../Data/STEL/raws/definite_abstract_org-wiki_200.txt", "r") as f:
         style_2_sentences = f.readlines()
 
     create_quadruples(style_1_sentences, style_2_sentences, dim_name, dim_name, "sae")

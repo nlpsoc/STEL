@@ -26,6 +26,7 @@ LOCAL_STEL_CHAR_QUAD = [get_dir_to_src() + '/../Data/STEL/characteristics/quad_q
                         get_dir_to_src() + '/../Data/STEL/characteristics/quad_questions_char_contraction.tsv',
                         get_dir_to_src() + '/../Data/STEL/characteristics/quad_questions_char_emotives.tsv',
                         get_dir_to_src() + '/../Data/STEL/characteristics/quad_questions_em-subj-pronoun_100.tsv',
+                        get_dir_to_src() + '/../Data/STEL/characteristics/quad_questions_definite-abstract_100.tsv',
                         ]
 
 #   PROBABLY NOT WHAT YOU NEED: full STEL data with annotations (on the unfiltered potential task instances)
